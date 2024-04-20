@@ -1,19 +1,21 @@
-import { useState } from 'react'
 import Header from './components/Header/Header'
-import Cart from './components/Cart/Cart'
-import Product from './components/Product/Product'
+import Product from './components/Product/ProductList'
 import Footer from './components/Footer/Footer'
+import './App.css'
+import './css/util.css'
+import './css/main.css'
+//import Cart from './components/Cart/Cart'
 //import BackToTopButton from './components/BackToTopButton/BackToTopButton'
 
 import './App.css'
+import ProductList from './components/Product/ProductList'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  
   return (
     <>
       <Header />
-      <Cart />
+      {/* <Cart /> */}
       <Product />
       <Footer />
       {/* <BackToTopButton /> */}
