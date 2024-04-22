@@ -28,20 +28,20 @@ const Header = () => {
       {/* Header desktop */}
       <div className={`container-menu-desktop ${isFixedMenu ? 'fix-menu-desktop' : ''}`} style={{ height: '124px' }}>
         {/* Botones de Login y Register */}
-        <div className="wrap-icon-header flex-w flex-r-m">
-          {/* Botón de Login */}
+        {/* <div className="wrap-icon-header flex-w flex-r-m">
+          {/* Botón de Login 
           <div className="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11">
             <Link to="/login" className="header-btn" style={{ color: '#8D8263', backgroundColor: '#FFD700' }}>
               Login
             </Link>
           </div>
-          {/* Botón de Register */}
+          {/* Botón de Register 
           <div className="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11">
             <Link to="/register" className="header-btn" style={{ color: '#8D8263', backgroundColor: '#FFD700' }}>
               Register
             </Link>
           </div>
-        </div>
+        </div> */}
 
         {/* Topbar */}
         <div className="top-bar">
@@ -53,13 +53,25 @@ const Header = () => {
                 Help & FAQs
               </a>
 
-              <a href="#" className="flex-c-m trans-04 p-lr-25">
+              {/* <a href="#" className="flex-c-m trans-04 p-lr-25">
                 My Account
-              </a>
+              </a> */}
+              <Link
+                to="/login"
+                className="flex-c-m trans-04 p-lr-25"
+              >
+                Acceso
+              </Link>
 
-              <a href="#" className="flex-c-m trans-04 p-lr-25">
+              {/* <a href="#" className="flex-c-m trans-04 p-lr-25">
                 EN
-              </a>
+              </a> */}
+              <Link
+                to="/register"
+                className="flex-c-m trans-04 p-lr-25"
+              >
+                Registro
+              </Link>
 
               <a href="#" className="flex-c-m trans-04 p-lr-25">
                 USD
@@ -68,11 +80,11 @@ const Header = () => {
           </div>
         </div>
 
-        <div className="wrap-menu-desktop">
+        <div className="wrap-menu-desktop" style={{ top: `${top}px` }}>
           <nav className="limiter-menu-desktop container">
             {/* Logo desktop */}
             <a href="#" className="logo">
-              <img src="images/icons/logo-01.png" alt="IMG-LOGO" />
+              <img src="images/icons/AnaFashion-logo-01.png" alt="IMG-LOGO" />
             </a>
 
             {/* Menu desktop */}
