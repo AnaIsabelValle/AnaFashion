@@ -50,7 +50,7 @@ const Header = () => {
 
             <div className="right-top-bar flex-w h-full">
               <a href="#" className="flex-c-m trans-04 p-lr-25">
-                Help & FAQs
+                Ayuda y Preguntas Frecuentes
               </a>
               <Link
                 to="/login"
@@ -66,7 +66,7 @@ const Header = () => {
               </Link>
 
               <a href="#" className="flex-c-m trans-04 p-lr-25">
-                USD
+                Euros
               </a>
             </div>
           </div>
@@ -83,17 +83,23 @@ const Header = () => {
             <div className="menu-desktop">
               <ul className="main-menu">
                 <li className="active-menu">
-                  <a href="index.html">Home</a>
+                <Link
+                  to="/home"
+                  className="flex-c-m trans-04 p-lr-25"
+                >
+                  Home
+                </Link>
+                  {/* <a href="index.html">Home</a> */}
                   <ul className="sub-menu">
-                    <li>
-                      <a href="index.html">Homepage 1</a>
-                    </li>
-                    <li>
+                    {/* <li>
+                      <a href="index.html">Home</a>
+                    </li> */}
+                    {/* <li>
                       <a href="home-02.html">Homepage 2</a>
                     </li>
                     <li>
                       <a href="home-03.html">Homepage 3</a>
-                    </li>
+                    </li> */}
                   </ul>
                 </li>
 
@@ -114,7 +120,7 @@ const Header = () => {
                   >
                     Cesta
                   </Link>
-              
+
                 </li>
 
                 <li>
@@ -126,13 +132,13 @@ const Header = () => {
                 </li>
 
                 <li>
-                <Link
+                  <Link
                     to="/contact"
                     className="flex-c-m trans-04 p-lr-25"
                   >
                     Contacto
                   </Link>
-                  
+
                 </li>
               </ul>
             </div>
@@ -195,7 +201,7 @@ const Header = () => {
 
       {/* Menu Mobile */}
       <div className="menu-mobile">
-        <ul className="topbar-mobile">
+       {/*  <ul className="topbar-mobile">
           <li>
             <div className="left-top-bar">Free shipping for standard order over $100</div>
           </li>
@@ -261,7 +267,7 @@ const Header = () => {
           <li>
             <a href="contact.html">Contact</a>
           </li>
-        </ul>
+        </ul> */}
       </div>
 
       {/* Modal Search */}
