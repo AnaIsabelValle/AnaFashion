@@ -46,26 +46,18 @@ const Header = () => {
         {/* Topbar */}
         <div className="top-bar">
           <div className="content-topbar flex-sb-m h-full container">
-            <div className="left-top-bar">Free shipping for standard order over $100</div>
+            <div className="left-top-bar">Envío gratuito para compras superiores a 50€</div>
 
             <div className="right-top-bar flex-w h-full">
               <a href="#" className="flex-c-m trans-04 p-lr-25">
                 Help & FAQs
               </a>
-
-              {/* <a href="#" className="flex-c-m trans-04 p-lr-25">
-                My Account
-              </a> */}
               <Link
                 to="/login"
                 className="flex-c-m trans-04 p-lr-25"
               >
                 Acceso
               </Link>
-
-              {/* <a href="#" className="flex-c-m trans-04 p-lr-25">
-                EN
-              </a> */}
               <Link
                 to="/register"
                 className="flex-c-m trans-04 p-lr-25"
@@ -105,12 +97,24 @@ const Header = () => {
                   </ul>
                 </li>
 
-                <li>
+                {/* <li>
                   <a href="product.html">Shop</a>
-                </li>
+                </li> */}
+                <Link
+                  to="/products"
+                  className="flex-c-m trans-04 p-lr-25"
+                >
+                  Artículos
+                </Link>
 
                 <li className="label1" data-label1="hot">
-                  <a href="shoping-cart.html">Features</a>
+                  <Link
+                    to="/cart"
+                    className="flex-c-m trans-04 p-lr-25"
+                  >
+                    Cesta
+                  </Link>
+              
                 </li>
 
                 <li>
@@ -122,7 +126,13 @@ const Header = () => {
                 </li>
 
                 <li>
-                  <a href="contact.html">Contact</a>
+                <Link
+                    to="/contact"
+                    className="flex-c-m trans-04 p-lr-25"
+                  >
+                    Contacto
+                  </Link>
+                  
                 </li>
               </ul>
             </div>
