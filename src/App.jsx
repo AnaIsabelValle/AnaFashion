@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import Hero from "./components/Hero/Hero";
 import Home from "./pages/Home/Home";
 import LoginForm from "./pages/LoginForm/LoginForm";
 import RegisterForm from "./pages/Register/RegisterForm";
@@ -14,6 +15,7 @@ function App() {
   return (
     <Router>
       <Header />
+      <Hero />
       <Routes>
         <Route path="/login" element={<LoginForm />} />
         <Route path="/register" element={<RegisterForm />} />
