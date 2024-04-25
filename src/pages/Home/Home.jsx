@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import Hero from '../../components/Hero/Hero';
+import Products from '../Products/Products';
+import ProductList from '../../components/ProductList/ProductList';
 
+/*
 const Products = () => {
 
     const productsData = [
@@ -106,19 +109,20 @@ const Products = () => {
         </div>
     );
 }
-
+*/
 const Home = () => {
 
     return (
         <>
-
-            {/* Slider */}
-            <section className="section-slide">
-
-            </section>
-
-            <Products />
             <Hero />
+            <div className="sec-banner bg0 p-t-80 p-b-50">
+                <div className="container">
+                    <div className="p-b-32">
+                        <h3 className="ltext-105 cl5 txt-center respon1">Novedades</h3>
+                    </div>
+                </div>
+            </div>
+            <ProductList />
         </>
     );
 }

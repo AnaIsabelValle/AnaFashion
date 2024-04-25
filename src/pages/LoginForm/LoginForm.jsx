@@ -25,7 +25,7 @@ const LoginForm = () => {
             <MdEmail className='icon' />
           </div>
           <div className='remember-forgot'>
-            {/* <label><input type="checkbox" />Remember me</label> */}
+            {/* <label><input type="checkbox" />Acuérdate de mí</label> */}
           </div>
           <button type='submit'>Iniciar Sesión</button>
           <p></p>

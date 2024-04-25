@@ -84,7 +84,7 @@ const Header = () => {
               <ul className="main-menu">
                 <li className="active-menu">
                 <Link
-                  to="/home"
+                  to="/"
                   className="flex-c-m trans-04 p-lr-25"
                 >
                   Home

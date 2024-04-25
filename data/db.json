@@ -1,0 +1,94 @@
+{
+
+    "products": [
+        {   "id" : "1",
+            "name": "Camisa blanca",
+            "category":"mujer",
+            "price": 35.0,
+            "description":"Camisa de manga corta ", 
+            "image": "images/product-01.jpg",
+            "created_at" : "24/04/2024"
+        },
+        {
+            "id" : "2",
+            "name ": "Blusa blanca",
+            "category": "mujer",
+            "price": "40.0",
+            "description":"Blusa de manga larga blanca", 
+            "image":" images/product-02.jpg",
+            "created_at" : "24/04/2024"
+        },
+        {
+            "id" : "3",
+            "name": "Blusa azul",
+            "category":"mujer",
+            "price": 25.0,
+            "description":"Blusa de manga larga azul", 
+            "image": "images/product-03.jpg",
+            "created_at" : "24/04/2024"
+        },
+        {
+            "id" : "4",
+            "name": "Abrigo marrón",
+            "category":"mujer",
+            "price": 65.0,
+            "description":"Abrigo de lino de manga larga marrón", 
+            "image": "images/product-04.jpg",
+            "created_at" : "24/04/2024"
+        },
+        {
+            "id" : "5",
+            "name": "Blusa gris",
+            "category":"mujer",
+            "price": 30.0,
+            "description":"Blusa de manga larga gris", 
+            "image": "images/product-05.jpg",
+            "created_at" : "24/04/2024"
+        },
+        {
+            "id" : "6",
+            "name": "Reloj negro",
+            "category":"hombre",
+            "price": 40.0,
+            "description":"Reloj de esfera cirular negro", 
+            "image": "images/product-06.jpg",
+            "created_at" : "24/04/2024"
+        },
+        {
+            "id" : "7",
+            "name": "Blazer",
+            "category":"mujer",
+            "price": 55.0,
+            "description":"Blazer de cuadros", 
+            "image": "images/product-07.jpg",
+            "created_at" : "24/04/2024"
+        },
+        {
+            "id" : "8",
+            "name": "Camisa blanca",
+            "category":"mujer",
+            "price": 32.0,
+            "description":"Camisa de manga corta  blanca con un dibujo ", 
+            "image": "images/product-08.jpg",
+            "created_at" : "24/04/2024"
+        },
+        {
+            "id" : "9",
+            "name": "Zapatilla negra",
+            "category":"mujer",
+            "price": 75.0,
+            "description":"Zapapilas converse negra ", 
+            "image": "images/product-09.jpg",
+            "created_at" : "24/04/2024"
+        },
+        {
+            "id" : "10",
+            "name": "Camisa mujer",
+            "category":"mujer",
+            "price": 20.0,
+            "description":"Camisa negra ", 
+            "image": "images/product-10.jpg",
+            "created_at" : "24/04/2024"
+        }
+    ]
+}

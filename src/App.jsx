@@ -15,7 +15,6 @@ function App() {
   return (
     <Router>
       <Header />
-      <Hero />
       <Routes>
         <Route path="/login" element={<LoginForm />} />
         <Route path="/register" element={<RegisterForm />} />
