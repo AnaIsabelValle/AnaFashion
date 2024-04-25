@@ -27,21 +27,6 @@ const Header = () => {
     <header>
       {/* Header desktop */}
       <div className={`container-menu-desktop ${isFixedMenu ? 'fix-menu-desktop' : ''}`} style={{ height: '124px' }}>
-        {/* Botones de Login y Register */}
-        {/* <div className="wrap-icon-header flex-w flex-r-m">
-          {/* Botón de Login 
-          <div className="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11">
-            <Link to="/login" className="header-btn" style={{ color: '#8D8263', backgroundColor: '#FFD700' }}>
-              Login
-            </Link>
-          </div>
-          {/* Botón de Register 
-          <div className="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11">
-            <Link to="/register" className="header-btn" style={{ color: '#8D8263', backgroundColor: '#FFD700' }}>
-              Register
-            </Link>
-          </div>
-        </div> */}
 
         {/* Topbar */}
         <div className="top-bar">
@@ -83,29 +68,17 @@ const Header = () => {
             <div className="menu-desktop">
               <ul className="main-menu">
                 <li className="active-menu">
-                <Link
-                  to="/"
-                  className="flex-c-m trans-04 p-lr-25"
-                >
-                  Home
-                </Link>
-                  {/* <a href="index.html">Home</a> */}
+                  <Link
+                    to="/"
+                    className="flex-c-m trans-04 p-lr-25"
+                  >
+                    HOme
+                  </Link>
+                  
                   <ul className="sub-menu">
-                    {/* <li>
-                      <a href="index.html">Home</a>
-                    </li> */}
-                    {/* <li>
-                      <a href="home-02.html">Homepage 2</a>
-                    </li>
-                    <li>
-                      <a href="home-03.html">Homepage 3</a>
-                    </li> */}
                   </ul>
                 </li>
 
-                {/* <li>
-                  <a href="product.html">Shop</a>
-                </li> */}
                 <Link
                   to="/products"
                   className="flex-c-m trans-04 p-lr-25"
@@ -201,7 +174,7 @@ const Header = () => {
 
       {/* Menu Mobile */}
       <div className="menu-mobile">
-       {/*  <ul className="topbar-mobile">
+        {/*  <ul className="topbar-mobile">
           <li>
             <div className="left-top-bar">Free shipping for standard order over $100</div>
           </li>

@@ -38,8 +38,6 @@ const ProductList = () => {
     ];
     return (
         <>
-
-
             <div className="sec-product bg0 p-t-50 p-b-50">
                 <div className="container">
                     <div className="flex-w flex-sb-m p-b-52">

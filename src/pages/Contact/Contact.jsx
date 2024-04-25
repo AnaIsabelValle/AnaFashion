@@ -10,7 +10,6 @@ const Contact = () => {
                 </h2>
             </section>
 
-
             {/* Content page */}
             <section className="bg0 p-t-104 p-b-116">
                 <div className="container">
