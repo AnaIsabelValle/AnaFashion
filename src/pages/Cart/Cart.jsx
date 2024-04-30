@@ -1,7 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 const Cart = () => {
+
+    function paypal() {
+        const navigate = useNavigate()
+        navigate("/paypal")
+
+    }
     return (
         <div>
             {/* Cart */}
@@ -106,7 +114,7 @@ const Cart = () => {
 
 
             {/* Shoping Cart */}
-            <form className="bg0 p-t-75 p-b-85">
+            <div className="bg0 p-t-75 p-b-85" >
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-10 col-xl-7 m-lr-auto m-b-50">
@@ -219,9 +227,9 @@ const Cart = () => {
                                             </span>
 
                                             <div className="rs1-select2 rs2-select2 bor8 bg0 m-b-12 m-t-9">
-                                                <select className="js-select2" name="time">
+                                                <select className="js-select2" name="time" >
                                                     <option>Seleccione un país...</option>
-                                                    <option>ESPAÑA</option>
+                                                    <option defaultChecked>ESPAÑA</option>
                                                     <option>PORTUGAL</option>
                                                 </select>
                                                 <div className="dropDownSelect2"></div>
@@ -258,15 +266,13 @@ const Cart = () => {
                                     </div>
                                 </div>
 
-                                <button className="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
-                                    Pasar por Caja
-                                </button>
-                            </div>
+                               
+                            </div> <Link className="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer" to={"/paypal"}> Pasar por Caja</Link>
                         </div>
                     </div>
                 </div>
-            </form>
-        </div>
+            </div >
+        </div >
     );
 }
 

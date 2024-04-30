@@ -1,0 +1,7 @@
+/* Agrega estilos para la etiqueta label con la clase 'cantidad' */
+.flex-w .cantidad {
+    font-size: 50px; /* Tamaño de fuente */
+    color: #333; /* Color de texto */
+    margin-right: 20px; /* Margen derecho para separación del input */
+    padding: 20%;
+}

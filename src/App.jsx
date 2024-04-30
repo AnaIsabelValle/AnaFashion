@@ -7,7 +7,9 @@ import LoginForm from "./pages/LoginForm/LoginForm";
 import RegisterForm from "./pages/Register/RegisterForm";
 import Products from "./pages/Products/Products";
 import Cart from "./pages/Cart/Cart";
+import ProductDetail from "./pages/ProductDetail/ProductDetail";
 import Contact from "./pages/Contact/Contact";
+import PayPal from "./pages/PayPal/PayPal";
 import "./css/util.css";
 import "./css/main.css";
 
@@ -21,7 +23,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/productDetail" element={<ProductDetail/>} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/paypal" element={<PayPal />} />
       </Routes>
       <Footer />
     </Router>

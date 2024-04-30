@@ -72,7 +72,7 @@ const Header = () => {
                     to="/"
                     className="flex-c-m trans-04 p-lr-25"
                   >
-                    HOme
+                    Home
                   </Link>
                   
                   <ul className="sub-menu">

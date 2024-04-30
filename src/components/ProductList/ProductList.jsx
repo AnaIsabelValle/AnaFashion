@@ -1,8 +1,16 @@
 import { useState } from "react";
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 const ProductList = () => {
-    const [filter, setFilter] = useState('*');
+    //const [filter, setFilter] = useState('*');
+    
+    function productDetail() {
+        const navigate = useNavigate()
+        navigate("/productDetail")
+
+    }
 
     const productsData = [
         {
@@ -184,9 +192,13 @@ const ProductList = () => {
 
                                         <img src={product.image} alt="IMG-PRODUCT" />
 
-                                        <a href="#" className="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
+                                        <Link to={"/productDetail"} className="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
                                             Vista Rápida
-                                        </a>
+                                        </Link>
+
+                                        {/* <a href="#" className="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
+                                            Vista Rápida
+                                        </a> */}
                                     </div>
 
                                     <div className="block2-txt flex-w flex-t p-t-14">
