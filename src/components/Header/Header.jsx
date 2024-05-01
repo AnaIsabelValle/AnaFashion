@@ -85,7 +85,7 @@ const Header = () => {
                   Artículos
                 </Link>
 
-                <li className="label1" data-label1="hot">
+                <li>
                   <Link
                     to="/cart"
                     className="flex-c-m trans-04 p-lr-25"
@@ -95,9 +95,9 @@ const Header = () => {
 
                 </li>
 
-                <li>
+                {/* <li>
                   <a href="blog.html">Blog</a>
-                </li>
+                </li> */}
 
                 <li>
                   <Link
