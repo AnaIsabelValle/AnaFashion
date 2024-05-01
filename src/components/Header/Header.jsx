@@ -73,18 +73,15 @@ const Header = () => {
                   >
                     Home
                   </Link>
-
                   <ul className="sub-menu">
                   </ul>
                 </li>
-
                 <Link
                   to="/products"
                   className="flex-c-m trans-04 p-lr-25"
                 >
                   Artículos
                 </Link>
-
                 <li>
                   <Link
                     to="/cart"
@@ -92,13 +89,7 @@ const Header = () => {
                   >
                     Cesta
                   </Link>
-
                 </li>
-
-                {/* <li>
-                  <a href="blog.html">Blog</a>
-                </li> */}
-
                 <li>
                   <Link
                     to="/about"
@@ -106,9 +97,7 @@ const Header = () => {
                   >
                     Acerca de
                   </Link>
-
                 </li>
-
                 <li>
                   <Link
                     to="/contact"
@@ -116,7 +105,6 @@ const Header = () => {
                   >
                     Contacto
                   </Link>
-
                 </li>
               </ul>
             </div>

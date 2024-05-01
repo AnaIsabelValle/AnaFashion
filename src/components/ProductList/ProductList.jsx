@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 const ProductList = () => {
     //const [filter, setFilter] = useState('*');
-    
+
     function productDetail() {
         const navigate = useNavigate()
         navigate("/productDetail")
@@ -187,20 +187,12 @@ const ProductList = () => {
                                 )}`}
                             >
                                 <div className="block2">
-
                                     <div className="block2-pic hov-img0">
-
                                         <img src={product.image} alt="IMG-PRODUCT" />
-
                                         <Link to={"/productDetail"} className="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
                                             Vista Rápida
                                         </Link>
-
-                                        {/* <a href="#" className="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                                            Vista Rápida
-                                        </a> */}
                                     </div>
-
                                     <div className="block2-txt flex-w flex-t p-t-14">
                                         <div className="block2-txt-child1 flex-col-l ">
                                             <a
@@ -209,10 +201,8 @@ const ProductList = () => {
                                             >
                                                 {product.name}
                                             </a>
-
                                             <span className="stext-105 cl3">{`${product.price}€`}</span>
                                         </div>
-
                                         <div className="block2-txt-child2 flex-r p-t-3">
                                             <a
                                                 href="#"
