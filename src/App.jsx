@@ -9,11 +9,15 @@ import Products from "./pages/Products/Products";
 import Cart from "./pages/Cart/Cart";
 import ProductDetail from "./pages/ProductDetail/ProductDetail";
 import Contact from "./pages/Contact/Contact";
+import About from "./pages/About/About";
 import PayPal from "./pages/PayPal/PayPal";
+import FinalPage from "./pages/FinalPage/FinalPage";
 import "./css/util.css";
 import "./css/main.css";
+import { useState } from "react";
 
 function App() {
+ 
   return (
     <Router>
       <Header />
@@ -25,7 +29,9 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/productDetail" element={<ProductDetail/>} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
         <Route path="/paypal" element={<PayPal />} />
+        <Route path="/finalpage" element={<FinalPage />} />
       </Routes>
       <Footer />
     </Router>

@@ -1,10 +1,17 @@
 
 import React from 'react';
 import { FaPaypal } from "react-icons/fa";
+import { useNavigate, Link } from 'react-router-dom';
 import './PayPal.css';
 
 
 const PayPal = () => {
+
+  // function finalPage() {
+  const navigate = useNavigate()
+  navigate("/finalpagel")
+
+  // }
   return (
     <>
       <div className='wrapper'>
@@ -16,7 +23,7 @@ const PayPal = () => {
             <input id='name' type='text' placeholder='Correo electrónico o número de móvil' required />
             <label>¿Has olvidado tu correo electrónico?</label>
           </div>
-          <button className='pagar' type='submit'>Pagar</button>
+          <Link to={"/finalpage"} ><button className='pagar' type='submit' >Pagar</button> </Link>
         </form >
       </div>
 

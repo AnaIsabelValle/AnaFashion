@@ -49,7 +49,6 @@ const Header = () => {
               >
                 Registro
               </Link>
-
               <a href="#" className="flex-c-m trans-04 p-lr-25">
                 Euros
               </a>
@@ -74,7 +73,7 @@ const Header = () => {
                   >
                     Home
                   </Link>
-                  
+
                   <ul className="sub-menu">
                   </ul>
                 </li>
@@ -101,7 +100,13 @@ const Header = () => {
                 </li>
 
                 <li>
-                  <a href="about.html">About</a>
+                  <Link
+                    to="/about"
+                    className="flex-c-m trans-04 p-lr-25"
+                  >
+                    Acerca de
+                  </Link>
+
                 </li>
 
                 <li>

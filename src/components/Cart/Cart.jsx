@@ -15,7 +15,7 @@ function Cart() {
             <i className="zmdi zmdi-close"></i>
           </div>
         </div>
-        
+
         <div className="header-cart-content flex-w js-pscroll">
           <ul className="header-cart-wrapitem w-full">
             <li className="header-cart-item flex-w flex-t m-b-12">
@@ -66,7 +66,7 @@ function Cart() {
               </div>
             </li>
           </ul>
-          
+
           <div className="w-full">
             <div className="header-cart-total w-full p-tb-40">
               Total: $75.00
