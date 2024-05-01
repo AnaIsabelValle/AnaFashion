@@ -6,9 +6,7 @@ const ProductCard = ({ product }) => {
 
     return (
         <div
-            className={`col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item ${category.join(
-                ' '
-            )}`}
+            className={`col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item ${category}`}
         >
             <div className="block2">
                 <div className="block2-pic hov-img0">
@@ -50,4 +48,4 @@ const ProductCard = ({ product }) => {
     )
 }
 
-export default ProducCard
+export default ProductCard

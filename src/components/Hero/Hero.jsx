@@ -54,7 +54,7 @@ const Hero = () => {
       });
     },
     afterChange: (index) => {
-      console.log("afterChange:", index);
+  
       setCurrentSlide(index);
       setVisible(true);
     },
