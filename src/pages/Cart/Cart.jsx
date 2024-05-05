@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 
 const Cart = () => {
 
-    function paypal() {
+    function checkout() {
         const navigate = useNavigate()
-        navigate("/paypal")
+        navigate("/checkout")
 
     }
     return (
@@ -267,7 +267,7 @@ const Cart = () => {
                                 </div>
 
                                
-                            </div> <Link className="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer" to={"/paypal"}> Pasar por Caja</Link>
+                            </div> <Link className="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer" to={"/checkout"}> Pasar por Caja</Link>
                         </div>
                     </div>
                 </div>

@@ -47,11 +47,11 @@ const Contact = () => {
                                         DIRECCIÓN
                                     </span>
 
-                                    <p className="stext-115 cl6 size-213 p-t-18">
+                                    <div className="stext-115 cl6 size-213 p-t-18">
                                         <p>Av. de Los González, nº 8,</p>
                                         <p>Valle de Guerra – La Laguna,</p>
                                         <p>(38320) S/C de Tenrife</p>
-                                    </p>
+                                    </div>
                                 </div>
                             </div>
 

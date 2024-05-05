@@ -28,16 +28,16 @@ function About() {
                                     Así podrás realizar tus compras de forma fácil, ágil y segura.
                                 </p>
 
-                                <p className="stext-113 cl6 p-b-26">
+                                <div className="stext-113 cl6 p-b-26">
                                     Y como no !! También puedes dirigirte a nuestra tienda física cita en:
                                     <p>Av. De Los González, nº8, Valle de Guerra - La Laguna, (38320) Santa Cruz de Tenerife, Islas Canarias, España</p>
                                     <p>Teléfono (+1) 2345678, Email: anaFashin@ventas.com</p>
-                                </p>
+                                </div>
 
-                                <p className="stext-113 cl6 p-b-26">
+                                <div className="stext-113 cl6 p-b-26">
                                     Estamos para ayudarte, no lo dudes !! 
                                     <p>Si necesitas asesoramiento, aquí estamos !!</p>
-                                </p>
+                                </div>
                             </div>
                         </div>
 
