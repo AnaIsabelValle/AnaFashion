@@ -20,6 +20,15 @@ const ProductDetail = () => {
         getProduct()
     }, [id])
 
+    if (!product) {
+        return <div>Loading...</div>;
+    }
+
+   
+    const productName = product.name ? product.name : 'Product Name Not Available';
+    const productDescription = product.description ? product.description : 'Product Description Not Available';
+
+
     return (
         <div>
             {/* breadcrumb */}

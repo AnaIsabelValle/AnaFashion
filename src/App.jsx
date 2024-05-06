@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import ProductList from "./components/ProductList/ProductList";
 import Home from "./pages/Home/Home";
 import LoginForm from "./pages/LoginForm/LoginForm";
 import RegisterForm from "./pages/Register/RegisterForm";
@@ -15,8 +14,6 @@ import PayPal from "./pages/PayPal/PayPal";
 import FinalPage from "./pages/FinalPage/FinalPage";
 import "./css/util.css";
 import "./css/main.css";
-import { useState } from "react";
-
 
 function App() {
 
@@ -29,7 +26,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/products:id/" element={<ProductDetail />} />
+        <Route path="/products/:id" element={<ProductDetail />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
         <Route path="/checkout" element={<Checkout />} />
