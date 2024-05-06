@@ -90,6 +90,15 @@
             "image": "images/product-10.jpg",
             "created_at": "24/04/2024"
         }
+        {
+            "id": "11",
+            "name": "Blusa blanca",
+            "category": "hombre",
+            "price": 23.50,
+            "description": "Blusa de manga larag blanca ",
+            "image": "images/product-11.jpg",
+            "created_at": "06/05/2024"
+        }
     ],
     
     "users": [

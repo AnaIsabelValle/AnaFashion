@@ -1,12 +1,29 @@
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { API_BASE_URL } from '../../utils/constants';
 
-import React from 'react';
 
+const ProductDetail = () => {
+    const { id } = useParams()
+    const [product, setProduct] = useState(null);
 
-function ProductDetail() {
+    useEffect(() => {
+        const getProduct = async () => {
+            try {
+                const response = await fetch(`${API_BASE_URL}/products/ ${id}`)
+                const product = await response.json()
+                setProduct(product)
+            } catch (error) {
+                console.error(error)
+            }
+        }
+        getProduct()
+    }, [])
+
     return (
         <div>
             {/* breadcrumb */}
-            <div className="container">
+            {/* <div className="container">
                 <div className="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
                     <a href="index.html" className="stext-109 cl8 hov-cl1 trans-04">
                         Home
@@ -23,12 +40,12 @@ function ProductDetail() {
                     </span>
                 </div>
             </div>
-
+ */}
             {/* Product Detail */}
             <section className="sec-product-detail bg0 p-t-65 p-b-60">
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-6 col-lg-7 p-b-30">
+                        {/* <div className="col-md-6 col-lg-7 p-b-30">
                             <div className="p-l-25 p-r-30 p-lr-0-lg">
                                 <div className="wrap-slick3 flex-sb flex-w">
                                     <div className="wrap-slick3-dots"></div>
@@ -37,14 +54,14 @@ function ProductDetail() {
                                     <div className="slick3 gallery-lb">
                                         <div className="item-slick3" data-thumb="images/product-detail-01.jpg">
                                             <div className="wrap-pic-w pos-relative">
-                                                <img src="images/product-detail-01.jpg" alt="IMG-PRODUCT" />
+                                                <img src="images/product-detail-01.jpg" alt="IMG-PRODUCT" /> */}
 
-                                                {/* <a className="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-01.jpg">
+                        {/* <a className="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-01.jpg">
                                                     <i className="fa fa-expand"></i>
                                                 </a> */}
-                                            </div>
-                                        </div>
-                                        {/* 
+                        {/* </div>
+                                        </div> */}
+                        {/* 
                                         <div className="item-slick3" data-thumb="images/product-detail-02.jpg">
                                             <div className="wrap-pic-w pos-relative">
                                                 <img src="images/product-detail-02.jpg" alt="IMG-PRODUCT" />
@@ -64,23 +81,23 @@ function ProductDetail() {
                                                 </a> 
                                             </div>
                                         </div> */}
-                                    </div>
+                        {/*      </div>
                                 </div>
-                            </div>
-                        </div>
+                            </div> */}
+                        {/* </div> */}
 
                         <div className="col-md-6 col-lg-5 p-b-30">
                             <div className="p-r-50 p-t-5 p-lr-0-lg">
                                 <h4 className="mtext-105 cl2 js-name-detail p-b-14">
-                                    Chaqueta ligera
+                                    {product.name}
                                 </h4>
 
                                 <span className="mtext-106 cl2">
-                                    58.79 €
+                                    {product.price} €
                                 </span>
 
                                 <p className="stext-102 cl3 p-t-23">
-                                    Prenda versátil y cómoda, confeccionada con materiales transpirables, elegante y funcional.
+                                    {product.description}
                                 </p>
 
                                 <div className="p-t-33">

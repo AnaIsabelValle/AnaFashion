@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Hero from '../../components/Hero/Hero';
 import { API_BASE_URL } from '../../utils/constants';
 import ProductCard from '../../components/ProductCard/ProductCard';
 
 const Home = () => {
     const [homeProducts, setHomeProducts] = useState([]);
-    useState(() => {
-        const fetchProudcts = async () => {
+    useEffect(() => {
+        const fetchProducts = async () => {
             const response = await fetch(
                 `${API_BASE_URL}/products?_sort=-created_at&_limit=8`
             );
@@ -14,7 +14,7 @@ const Home = () => {
             const products = await response.json();
             setHomeProducts(products);
         };
-        fetchProudcts();
+        fetchProducts();
     }, []);
 
     return (
