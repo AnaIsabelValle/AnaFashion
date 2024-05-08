@@ -116,7 +116,7 @@
         "email": "juangonzalez@gmail.com",
         "password": "$123",
         "name": {
-          "firtname": "Juan",
+          "firstname": "Juan",
           "lastname": "González"
         },
         "addres": {

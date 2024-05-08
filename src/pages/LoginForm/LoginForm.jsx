@@ -12,7 +12,7 @@ const LoginForm = () => {
           Acceso
         </h2>
       </section>
-      <div className='wrapper'>
+      <div className='wrapper-login'>
         <form action=''>
           <label>Nombre</label>
           <div className='input-box'>

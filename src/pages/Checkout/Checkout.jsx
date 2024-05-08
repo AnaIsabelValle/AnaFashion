@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { API_BASE_URL } from '../../utils/constants';
 import { useNavigate } from 'react-router-dom';
+import { API_BASE_URL } from '../../utils/constants';
+
 
 function Checkout() {
     const navigate = useNavigate();
 
-   /*  useEffect(() => {
-        navigate("/products/:id");
-     },[navigate]) */
-    
+    /*  useEffect(() => {
+         navigate("/products/:id");
+      },[navigate]) */
+
     const [formData, setFormData] = useState({
         nombre: '',
         apellidos: '',
-        email: '',
         telefono: '',
         pais: '',
         provincia: '',
@@ -30,11 +29,10 @@ function Checkout() {
                     throw new Error('Error al cargar los datos del usuario');
                 }
                 const userData = await response.json();
-                const { name, addres, email, phone } = userData;
+                const { name, addres, phone } = userData;
                 setFormData({
                     nombre: name.firstname || '',
                     apellidos: name.lastname || '',
-                    email: email || '',
                     telefono: phone || '',
                     pais: addres.country || '',
                     provincia: addres.province || '',
@@ -53,9 +51,8 @@ function Checkout() {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const handleRealizarPedido = () => {
+        window.alert("Hola handleRealizarPedido..");
     };
 
     return (
@@ -66,47 +63,42 @@ function Checkout() {
                         <span>Detalle de facturación</span>
                     </h5>
                     <div className="bg-light p-30 mb-5">
-                        <form onSubmit={handleSubmit}>
-                            <div className="row">
-                                <div className="col-md-6 form-group">
-                                    <label>Nombre</label>
-                                    <input className="form-control" type="text" name="nombre" value={formData.nombre} onChange={handleChange} placeholder="Nombre" />
-                                </div>
-                                <div className="col-md-6 form-group">
-                                    <label>Apellidos</label>
-                                    <input className="form-control" type="text" name="apellidos" value={formData.apellidos} onChange={handleChange} placeholder="Apellidos" />
-                                </div>
-                                <div className="col-md-6 form-group">
-                                    <label>E-mail</label>
-                                    <input className="form-control" type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Email" />
-                                </div>
-                                <div className="col-md-6 form-group">
-                                    <label>No Teléfono</label>
-                                    <input className="form-control" type="text" name="telefono" value={formData.telefono} onChange={handleChange} placeholder="No Teléfono" />
-                                </div>
-                                <div className="col-md-6 form-group">
-                                    <label>País</label>
-                                    <input className="form-control" type="text" name="pais" value={formData.pais} onChange={handleChange} placeholder="País" />
-                                </div>
-                                <div className="col-md-6 form-group">
-                                    <label>Provincia/Estado</label>
-                                    <input className="form-control" type="text" name="provincia" value={formData.provincia} onChange={handleChange} placeholder="Provincia/Estado" />
-                                </div>
-                                <div className="col-md-6 form-group">
-                                    <label>Pueblo/Ciudad</label>
-                                    <input className="form-control" type="text" name="ciudad" value={formData.ciudad} onChange={handleChange} placeholder="Pueblo/Ciudad" />
-                                </div>
-                                <div className="col-md-6 form-group">
-                                    <label>Dirección</label>
-                                    <input className="form-control" type="text" name="direccion" value={formData.direccion} onChange={handleChange} placeholder="Dirección" />
-                                </div>
-                                <div className="col-md-6 form-group">
-                                    <label>Código Postal / Zip</label>
-                                    <input className="form-control" type="text" name="codigoPostal" value={formData.codigoPostal} onChange={handleChange} placeholder="Código Postal / Zip" />
-                                </div>
+                        <div className="row">
+                            <div className="col-md-6 form-group">
+                                <label>Nombre</label>
+                                <input className="form-control" type="text" name="nombre" value={formData.nombre} onChange={handleChange} placeholder="Nombre" />
                             </div>
-                            <button type="submit" className="btn btn-primary">Enviar</button>
-                        </form>
+                            <div className="col-md-6 form-group">
+                                <label>Apellidos</label>
+                                <input className="form-control" type="text" name="apellidos" value={formData.apellidos} onChange={handleChange} placeholder="Apellidos" />
+                            </div>
+                            <div className="col-md-6 form-group">
+                                <label>No Teléfono</label>
+                                <input className="form-control" type="text" name="telefono" value={formData.telefono} onChange={handleChange} placeholder="No Teléfono" />
+                            </div>
+
+                            <div className="col-md-6 form-group">
+                                <label>País</label>
+                                <input className="form-control" type="text" name="pais" value={formData.pais} onChange={handleChange} placeholder="País" />
+                            </div>
+                            <div className="col-md-6 form-group">
+                                <label>Provincia/Estado</label>
+                                <input className="form-control" type="text" name="provincia" value={formData.provincia} onChange={handleChange} placeholder="Provincia/Estado" />
+                            </div>
+                            <div className="col-md-6 form-group">
+                                <label>Pueblo/Ciudad</label>
+                                <input className="form-control" type="text" name="ciudad" value={formData.ciudad} onChange={handleChange} placeholder="Pueblo/Ciudad" />
+                            </div>
+                            <div className="col-md-6 form-group">
+                                <label>Dirección</label>
+                                <input className="form-control" type="text" name="direccion" value={formData.direccion} onChange={handleChange} placeholder="Dirección" />
+                            </div>
+                            <div className="col-md-6 form-group">
+                                <label>Código Postal / Zip</label>
+                                <input className="form-control" type="text" name="codigoPostal" value={formData.codigoPostal} onChange={handleChange} placeholder="Código Postal / Zip" />
+                            </div>
+                        </div>
+
                     </div>
                 </div>
                 <div className="col-lg-4">
@@ -167,9 +159,9 @@ function Checkout() {
                             </span>
                         </div>
                         <div className="mt-4">
-                            <Link className="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer" to={"/paypal"}>
+                            <button className="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer" onClick={handleRealizarPedido} >
                                 Realizar Pedido
-                            </Link>
+                            </button>
                         </div>
                     </div>
                 </div>

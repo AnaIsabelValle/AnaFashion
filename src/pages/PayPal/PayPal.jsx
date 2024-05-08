@@ -7,11 +7,8 @@ import './PayPal.css';
 
 const PayPal = () => {
 
-  // function finalPage() {
   const navigate = useNavigate()
-  navigate("/finalpagel")
 
-  // }
   return (
     <>
       <div className='wrapper'>
@@ -23,10 +20,9 @@ const PayPal = () => {
             <input id='name' type='text' placeholder='Correo electrónico o número de móvil' required />
             <label>¿Has olvidado tu correo electrónico?</label>
           </div>
-          <Link to={"/finalpage"} ><button className='pagar' type='submit' >Pagar</button> </Link>
+          <Link ><button className='pagar' type='submit' onClick={() => navigate("/finalpagel")} >Pagar</button> </Link>
         </form >
       </div>
-
 
     </>
   );
