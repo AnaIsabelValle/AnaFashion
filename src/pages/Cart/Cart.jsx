@@ -7,7 +7,7 @@ const Cart = () => {
 
     function checkout() {
         const navigate = useNavigate()
-        navigate("/checkout")
+        navigate("/products/:id")
 
     }
     return (

@@ -5,17 +5,26 @@ import ProductCard from '../../components/ProductCard/ProductCard';
 
 const Home = () => {
     const [homeProducts, setHomeProducts] = useState([]);
+    const [page, setPage] = useState(1);
+    const [loading, setLoading] = useState(true);
+
     useEffect(() => {
         const fetchProducts = async () => {
+            setLoading(true);
             const response = await fetch(
-                `${API_BASE_URL}/products?_sort=-created_at&_limit=8`
+                `${API_BASE_URL}/products?_sort=-created_at&_page=${page}&_limit=8`
             );
 
             const products = await response.json();
-            setHomeProducts(products);
+            if (page === 1) {
+                setHomeProducts(products);
+            } else {
+                setHomeProducts((prevProducts) => [...prevProducts, ...products]);
+            }
+            setLoading(false);
         };
         fetchProducts();
-    }, []);
+    }, [page]);
 
     return (
         <>
@@ -35,6 +44,18 @@ const Home = () => {
                         </div>
                     </section>
                 </div>
+
+               {/*  {!loading && (
+                    <div className="flex-c-m w-full justify-center">
+                        <button
+                            className="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04"
+                            onClick={() => setPage(page + 1)}
+                            style={{ width: "150px" }}
+                        >
+                            Cargar Más
+                        </button>
+                    </div>
+                )} */}
             </div>
 
         </>

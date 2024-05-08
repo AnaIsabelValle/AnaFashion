@@ -1,10 +1,60 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { API_BASE_URL } from '../../utils/constants';
 import { useNavigate } from 'react-router-dom';
 
 function Checkout() {
     const navigate = useNavigate();
-    navigate("/paypal");
+    navigate("/products/:id");
+
+    const [formData, setFormData] = useState({
+        nombre: '',
+        apellidos: '',
+        email: '',
+        telefono: '',
+        pais: '',
+        provincia: '',
+        ciudad: '',
+        direccion: '',
+        codigoPostal: ''
+    });
+
+    useEffect(() => {
+        const fetchUserData = async () => {
+            try {
+                const response = await fetch(`${API_BASE_URL}/users/1`);
+                if (!response.ok) {
+                    throw new Error('Error al cargar los datos del usuario');
+                }
+                const userData = await response.json();
+                const { name, addres, email, phone } = userData;
+                setFormData({
+                    nombre: name.firstname || '',
+                    apellidos: name.lastname || '',
+                    email: email || '',
+                    telefono: phone || '',
+                    pais: addres.country || '',
+                    provincia: addres.province || '',
+                    ciudad: addres.city || '',
+                    direccion: addres.street || '',
+                    codigoPostal: addres.zipcode || ''
+                });
+            } catch (error) {
+                console.error(error);
+            }
+        };
+        fetchUserData();
+    }, []);
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Aquí podrías enviar los datos del formulario a través de una solicitud HTTP o realizar cualquier otra acción necesaria
+    };
 
     return (
         <div className="container-fluid">
@@ -14,44 +64,47 @@ function Checkout() {
                         <span>Detalle de facturación</span>
                     </h5>
                     <div className="bg-light p-30 mb-5">
-                        <div className="row">
-                            <div className="col-md-6 form-group">
-                                <label>Nombre</label>
-                                <input className="form-control" type="text" placeholder="Nombre" />
+                        <form onSubmit={handleSubmit}>
+                            <div className="row">
+                                <div className="col-md-6 form-group">
+                                    <label>Nombre</label>
+                                    <input className="form-control" type="text" name="nombre" value={formData.nombre} onChange={handleChange} placeholder="Nombre" />
+                                </div>
+                                <div className="col-md-6 form-group">
+                                    <label>Apellidos</label>
+                                    <input className="form-control" type="text" name="apellidos" value={formData.apellidos} onChange={handleChange} placeholder="Apellidos" />
+                                </div>
+                                <div className="col-md-6 form-group">
+                                    <label>E-mail</label>
+                                    <input className="form-control" type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Email" />
+                                </div>
+                                <div className="col-md-6 form-group">
+                                    <label>No Teléfono</label>
+                                    <input className="form-control" type="text" name="telefono" value={formData.telefono} onChange={handleChange} placeholder="No Teléfono" />
+                                </div>
+                                <div className="col-md-6 form-group">
+                                    <label>País</label>
+                                    <input className="form-control" type="text" name="pais" value={formData.pais} onChange={handleChange} placeholder="País" />
+                                </div>
+                                <div className="col-md-6 form-group">
+                                    <label>Provincia/Estado</label>
+                                    <input className="form-control" type="text" name="provincia" value={formData.provincia} onChange={handleChange} placeholder="Provincia/Estado" />
+                                </div>
+                                <div className="col-md-6 form-group">
+                                    <label>Pueblo/Ciudad</label>
+                                    <input className="form-control" type="text" name="ciudad" value={formData.ciudad} onChange={handleChange} placeholder="Pueblo/Ciudad" />
+                                </div>
+                                <div className="col-md-6 form-group">
+                                    <label>Dirección</label>
+                                    <input className="form-control" type="text" name="direccion" value={formData.direccion} onChange={handleChange} placeholder="Dirección" />
+                                </div>
+                                <div className="col-md-6 form-group">
+                                    <label>Código Postal / Zip</label>
+                                    <input className="form-control" type="text" name="codigoPostal" value={formData.codigoPostal} onChange={handleChange} placeholder="Código Postal / Zip" />
+                                </div>
                             </div>
-                            <div className="col-md-6 form-group">
-                                <label>Apellidos</label>
-                                <input className="form-control" type="text" placeholder="Apellidos" />
-                            </div>
-                            <div className="col-md-6 form-group">
-                                <label>E-mail</label>
-                                <input className="form-control" type="email" placeholder="Email" />
-                            </div>
-                            <div className="col-md-6 form-group">
-                                <label>No Teléfono</label>
-                                <input className="form-control" type="text" placeholder="No Teléfono" />
-                            </div>
-                            <div className="col-md-6 form-group">
-                                <label>País</label>
-                                <input className="form-control" type="text" placeholder="País" />
-                            </div>
-                            <div className="col-md-6 form-group">
-                                <label>Provincia/Estado</label>
-                                <input className="form-control" type="text" placeholder="Provincia/Estado" />
-                            </div>
-                            <div className="col-md-6 form-group">
-                                <label>Pueblo/Ciudad</label>
-                                <input className="form-control" type="text" placeholder="Pueblo/Ciudad" />
-                            </div>
-                            <div className="col-md-6 form-group">
-                                <label>Dirección</label>
-                                <input className="form-control" type="text" placeholder="Dirección" />
-                            </div>
-                            <div className="col-md-6 form-group">
-                                <label>Código Postal / Zip</label>
-                                <input className="form-control" type="text" placeholder="Código Postal / Zip" />
-                            </div>
-                        </div>
+                            <button type="submit" className="btn btn-primary">Enviar</button>
+                        </form>
                     </div>
                 </div>
                 <div className="col-lg-4">

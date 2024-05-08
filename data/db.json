@@ -98,6 +98,15 @@
         "description": "Blusa de manga larag blanca ",
         "image": "/images/product-11.jpg",
         "created_at": "06/05/2024"
+      },
+      {
+        "id": "12",
+        "name": "Cinturón marrón",
+        "category": "hombre",
+        "price": 19.5,
+        "description": "Cinturón marrón ",
+        "image": "/images/product-12.jpg",
+        "created_at": "07/05/2024"
       }
     ],
     "users": [
