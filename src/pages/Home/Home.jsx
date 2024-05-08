@@ -44,18 +44,6 @@ const Home = () => {
                         </div>
                     </section>
                 </div>
-
-               {/*  {!loading && (
-                    <div className="flex-c-m w-full justify-center">
-                        <button
-                            className="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04"
-                            onClick={() => setPage(page + 1)}
-                            style={{ width: "150px" }}
-                        >
-                            Cargar Más
-                        </button>
-                    </div>
-                )} */}
             </div>
 
         </>

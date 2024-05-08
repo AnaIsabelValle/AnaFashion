@@ -5,8 +5,11 @@ import { useNavigate } from 'react-router-dom';
 
 function Checkout() {
     const navigate = useNavigate();
-    navigate("/products/:id");
 
+   /*  useEffect(() => {
+        navigate("/products/:id");
+     },[navigate]) */
+    
     const [formData, setFormData] = useState({
         nombre: '',
         apellidos: '',
@@ -53,7 +56,6 @@ function Checkout() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Aquí podrías enviar los datos del formulario a través de una solicitud HTTP o realizar cualquier otra acción necesaria
     };
 
     return (
@@ -165,7 +167,7 @@ function Checkout() {
                             </span>
                         </div>
                         <div className="mt-4">
-                            <Link className="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer" to={"/checkout"}>
+                            <Link className="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer" to={"/paypal"}>
                                 Realizar Pedido
                             </Link>
                         </div>
