@@ -145,7 +145,7 @@ const Cart = () => {
                                                             <i className="fs-16 zmdi zmdi-minus"></i>
                                                         </div>
 
-                                                        <input className="mtext-104 cl3 txt-center num-product" type="number" name="num-product1" defaultValue="1" />
+                                                        <input className="mtext-104 cl3 txt-center num-product" type="number" name="num-product1" value="1" />
 
                                                         <div className="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
                                                             <i className="fs-16 zmdi zmdi-plus"></i>
