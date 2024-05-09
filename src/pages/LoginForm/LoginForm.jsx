@@ -1,14 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useNavigate, useEffect } from 'react';
 import './LoginForm.css';
 import { FaUser } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { Link } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
 
 
 export const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+
+  const navigate = useNavigate();
+
+  const { loginUser, isAuthenticated } = useAuth();
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/");
+    }
+  }, [navigate, isAuthenticated]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,7 +30,11 @@ export const LoginForm = () => {
       setError("Por favor, introduce un correo electrónico válido");
       return;
     }
-  }; 
+    
+  };
+
+  
+
 
 
   return (
@@ -31,7 +46,7 @@ export const LoginForm = () => {
       </section>
       <div className='wrapper-login'>
         <form onSubmit={handleSubmit}>
-        
+
           {error && (
             <div
               style={{
@@ -46,7 +61,7 @@ export const LoginForm = () => {
           <div className='input-box'>
             <input type='email' name='email' placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} required />
             <MdEmail className='icon' />
-          
+
           </div>
 
           <div className='input-box'>
