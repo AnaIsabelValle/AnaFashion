@@ -114,7 +114,7 @@
         "id": "1",
         "username": "Juan González",
         "email": "juangonzalez@gmail.com",
-        "password": "$123",
+        "password":"$2a$10$3XxGmkP5I0aiOJ5pHrK9OufDDlL0JzhgsiRhezXdxlIENm1zpKObG",
         "name": {
           "firstname": "Juan",
           "lastname": "González"
