@@ -3,6 +3,7 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home/Home";
 import LoginForm from "./pages/LoginForm/LoginForm";
+import Logout from "./pages/Logout/Logout";
 import RegisterForm from "./pages/Register/RegisterForm";
 import Products from "./pages/Products/Products";
 import Cart from "./pages/Cart/Cart";
@@ -25,6 +26,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<LoginForm />} />
+          <Route path="/logout" element={<Logout />} />
           <Route path="/register" element={<RegisterForm />} />
           <Route path="/products" element={<Products />} />
           <Route path="/products/:id" element={<ProductDetail />} />

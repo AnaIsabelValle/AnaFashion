@@ -1,9 +1,10 @@
-import React, { useState, useNavigate, useEffect } from 'react';
+import React, { useState,  useEffect } from 'react';
 import './LoginForm.css';
 import { FaUser } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
+import { API_BASE_URL } from "../../utils/constants";
 
 
 export const LoginForm = () => {
@@ -21,7 +22,35 @@ export const LoginForm = () => {
     }
   }, [navigate, isAuthenticated]);
 
-  const handleSubmit = (e) => {
+  const login = async () => {
+    const response = await fetch(`${API_BASE_URL}/login`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json;charset=UTF-8",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      return {
+        user: {
+          id: data.user.id,
+          email: data.user.email,
+          username: data.user.username,
+          role: data.user.role,
+        },
+        token: data.accessToken,
+      };
+    } else {
+      throw new Error("Email o password incorrecto");
+    }
+  };
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Verificar que el correo electrónico sea válido
@@ -30,12 +59,15 @@ export const LoginForm = () => {
       setError("Por favor, introduce un correo electrónico válido");
       return;
     }
-    
+
+    try {
+      const userData = await login(email, password);
+      loginUser(userData);
+      navigate("/");
+    } catch (error) {
+      setError(error.message);
+    }
   };
-
-  
-
-
 
   return (
     <>

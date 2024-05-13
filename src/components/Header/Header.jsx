@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
+
 
 const Header = () => {
+  const { isAuthenticated } = useAuth();
   const [posWrapHeader, setPoswrapHeader] = useState(0);
   const [scrollToTop, setScrollTop] = useState(0);
 
@@ -37,12 +40,18 @@ const Header = () => {
               <a href="#" className="flex-c-m trans-04 p-lr-25">
                 Ayuda y Preguntas Frecuentes
               </a>
-              <Link
-                to="/login"
-                className="flex-c-m trans-04 p-lr-25"
-              >
-                Acceso
-              </Link>
+              {isAuthenticated ? (
+                <>
+                  <Link to="/logout" className="flex-c-m trans-04 p-lr-25">
+                    Log Out
+                  </Link>
+                </>
+              ) : (
+                <Link to="/login" className="flex-c-m trans-04 p-lr-25">
+                  Acceso
+                </Link>
+              )} 
+
               <Link
                 to="/register"
                 className="flex-c-m trans-04 p-lr-25"
