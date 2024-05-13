@@ -16,29 +16,32 @@ import FinalPage from "./pages/FinalPage/FinalPage";
 import AuthProvider from "./context/AuthContext";
 import "./css/util.css";
 import "./css/main.css";
+import CartProvider from "./context/CartContext";
 
 function App() {
 
   return (
     <AuthProvider>
-      <Router>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<LoginForm />} />
-          <Route path="/logout" element={<Logout />} />
-          <Route path="/register" element={<RegisterForm />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/products/:id" element={<ProductDetail />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/paypal" element={<PayPal />} />
-          <Route path="/finalpage" element={<FinalPage />} />
-        </Routes>
-        <Footer />
-      </Router>
+      <CartProvider>
+        <Router>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<LoginForm />} />
+            <Route path="/logout" element={<Logout />} />
+            <Route path="/register" element={<RegisterForm />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/products/:id" element={<ProductDetail />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/paypal" element={<PayPal />} />
+            <Route path="/finalpage" element={<FinalPage />} />
+          </Routes>
+          <Footer />
+        </Router>
+      </CartProvider>
     </AuthProvider >
 
   );

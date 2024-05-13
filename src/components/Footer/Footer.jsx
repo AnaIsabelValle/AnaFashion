@@ -74,18 +74,6 @@ const Footer = () => {
             <a href="#" className="m-all-1">
               <img src="images/icons/icon-pay-01.png" alt="ICON-PAY" />
             </a>
-            <a href="#" className="m-all-1">
-              <img src="images/icons/icon-pay-02.png" alt="ICON-PAY" />
-            </a>
-            <a href="#" className="m-all-1">
-              <img src="images/icons/icon-pay-03.png" alt="ICON-PAY" />
-            </a>
-            <a href="#" className="m-all-1">
-              <img src="images/icons/icon-pay-04.png" alt="ICON-PAY" />
-            </a>
-            <a href="#" className="m-all-1">
-              <img src="images/icons/icon-pay-05.png" alt="ICON-PAY" />
-            </a>
           </div>
           <p className="stext-107 cl6 txt-center">AnaFashion © 2024</p>
         </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 
@@ -35,22 +35,18 @@ const Header = () => {
         <div className="top-bar">
           <div className="content-topbar flex-sb-m h-full container">
             <div className="left-top-bar">Envío gratuito para compras superiores a 50€</div>
-
             <div className="right-top-bar flex-w h-full">
-              <a href="#" className="flex-c-m trans-04 p-lr-25">
-                Ayuda y Preguntas Frecuentes
-              </a>
               {isAuthenticated ? (
                 <>
                   <Link to="/logout" className="flex-c-m trans-04 p-lr-25">
-                    Log Out
+                    Cerrar Sesión
                   </Link>
                 </>
               ) : (
                 <Link to="/login" className="flex-c-m trans-04 p-lr-25">
                   Acceso
                 </Link>
-              )} 
+              )}
 
               <Link
                 to="/register"
@@ -67,10 +63,9 @@ const Header = () => {
 
         <div className="wrap-menu-desktop" style={{ top: `${top}px` }}>
           <nav className="limiter-menu-desktop container">
-            {/* Logo desktop */}
-            <a href="#" className="logo">
-              <img src="images/icons/AnaFashion-logo-01.png" alt="IMG-LOGO" />
-            </a>
+            <Link to="/" className="logo">
+              <img src="/images/icons/AnaFashion-logo-01.png" alt="IMG-LOGO" />
+            </Link>
 
             {/* Menu desktop */}
             <div className="menu-desktop">
@@ -143,9 +138,9 @@ const Header = () => {
       <div className="wrap-header-mobile">
         {/* Logo moblie */}
         <div className="logo-mobile">
-          <a href="index.html">
-            <img src="images/icons/logo-01.png" alt="IMG-LOGO" />
-          </a>
+          <Link to="/" className="logo">
+            <img src="/images/icons/AnaFashion-logo-01.png" alt="IMG-LOGO" />
+          </Link>
         </div>
 
         {/* Icon header */}
@@ -249,7 +244,7 @@ const Header = () => {
       <div className="modal-search-header flex-c-m trans-04 js-hide-modal-search">
         <div className="container-search-header">
           <button className="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
-            <img src="images/icons/icon-close2.png" alt="CLOSE" />
+            <img src="/images/icons/icon-close2.png" alt="CLOSE" />
           </button>
 
           <form className="wrap-search-header flex-w p-l-15">

@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { API_BASE_URL } from "../../utils/constants";
+import { CartContext } from "../../context/CartContext";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -8,6 +9,8 @@ const ProductDetail = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [quantity, setQuantity] = useState(1);
+
+  const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
     const getProduct = async () => {
@@ -32,6 +35,16 @@ const ProductDetail = () => {
 
     getProduct();
   }, [id]);
+
+  const handleAddToCart = () => {
+    addToCart(product, id, quantity);
+    Swal.fire({
+      icon: "success",
+      title: `${product.name} se añadió al carrito !`,
+      showConfirmButton: false,
+      timer: 1000,
+    });
+  };
 
   if (error) {
     return (
@@ -84,9 +97,10 @@ const ProductDetail = () => {
                       </div>
  */}
                       <input
-                        className="mtext-104 cl3 txt-center num-product"
+                        className="mtext-104 cl3 txt-center"
                         type="number"
-                        name="num-product"
+                        id="quantity"
+                        name="quantity"
                         value={quantity}
                         onChange={(e) => setQuantity(parseInt(e.target.value))}
                       />
@@ -97,7 +111,7 @@ const ProductDetail = () => {
  */}
                     </div>
 
-                    <button className="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+                    <button className="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail" onClick={handleAddToCart}>
                       Añadir a la cesta
                     </button>
                   </div>

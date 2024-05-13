@@ -1,9 +1,9 @@
 const AfroStyles = [
     {
       id: 1,
-      title: "NEW SEASON",
-      description: "Women Collection 2024",
-      button: "Shop Now",
+      title: "NUEVA TEMPORADA",
+      description: "Colección Mujer 2024",
+      button: "Compra Ahora",
       animate_title: "fadeInUp",
       animate_description: "fadeInDown",
       animate_button: "zoomIn",
@@ -12,9 +12,9 @@ const AfroStyles = [
     },
     {
       id: 2,
-      title: "Jackets & Coats",
-      description: "Men New-Season",
-      button: "Shop Now",
+      title: "Chaquetas y Abrigos",
+      description: "Nueva Temporada Masculina",
+      button: "Compra Ahora",
       animate_title: "lightSpeedIn",
       animate_description: "rollIn",
       animate_button: "zoomIn", // 'slideInUp',
@@ -23,9 +23,9 @@ const AfroStyles = [
     },
     {
       id: 3,
-      title: "Men Collection 2024",
-      description: "New arrivals",
-      button: "Shop Now",
+      title: "Colección Hombre 2024",
+      description: "Novedades",
+      button: "Compra Ahora",
   
       animate_title: "rotateInDownLeft",
       animate_description: "rotateInUpRight",
