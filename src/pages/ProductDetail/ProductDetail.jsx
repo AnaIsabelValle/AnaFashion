@@ -2,6 +2,8 @@ import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { API_BASE_URL } from "../../utils/constants";
 import { CartContext } from "../../context/CartContext";
+import Swal from "sweetalert2"; 
+
 
 const ProductDetail = () => {
   const { id } = useParams();

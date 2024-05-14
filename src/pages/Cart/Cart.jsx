@@ -1,9 +1,48 @@
-import React from 'react';
+import { React, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-
+import { CartContext } from "../../context/CartContext";
+import CartItem from './CartItem';
 
 const Cart = () => {
+    const { cart, total, increaseAmount, decreaseAmount } =
+        useContext(CartContext);
+
+    const handleIncrement = (id) => {
+        increaseAmount(id);
+    };
+
+    const handleDecrement = (id) => {
+        decreaseAmount(id);
+    };
+
+    if (!cart.length) {
+        return (
+            <div className="card p-t-75 p-b-75">
+                <div className="card-body cart">
+                    <div className="col-sm-12 empty-cart-cls text-center">
+                        <img
+                            src="images/icons/empty-cart.png"
+                            width="130"
+                            height="130"
+                            className="img-fluid mb-4 mr-3"
+                        />
+                        <h3>
+                            <strong>Your Cart is Empty</strong>
+                        </h3>
+                        <h4>Add something to make me happy :)</h4>
+                        <Link
+                            to="/"
+                            className="btn m-3 stext-101 cl0 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer"
+                            data-abc="true"
+                        >
+                            continue shopping
+                        </Link>
+                    </div>
+                </div>
+            </div>
+        );
+    }
 
     function checkout() {
         const navigate = useNavigate()
@@ -11,100 +50,17 @@ const Cart = () => {
 
     }
     return (
-        <div>
-            {/* Cart */}
-            <div className="wrap-header-cart js-panel-cart">
-                <div className="s-full js-hide-cart"></div>
-
-                <div className="header-cart flex-col-l p-l-65 p-r-25">
-                    <div className="header-cart-title flex-w flex-sb-m p-b-8">
-                        <span className="mtext-103 cl2">
-                            Tu carrito
-                        </span>
-
-                        <div className="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
-                            <i className="zmdi zmdi-close"></i>
-                        </div>
-                    </div>
-
-                    <div className="header-cart-content flex-w js-pscroll">
-                        <ul className="header-cart-wrapitem w-full">
-                            <li className="header-cart-item flex-w flex-t m-b-12">
-                                <div className="header-cart-item-img">
-                                    <img src="images/item-cart-01.jpg" alt="IMG" />
-                                </div>
-
-                                <div className="header-cart-item-txt p-t-8">
-                                    <a href="#" className="header-cart-item-name m-b-18 hov-cl1 trans-04">
-                                        White Shirt Pleat
-                                    </a>
-
-                                    <span className="header-cart-item-info">
-                                        1 x $19.00
-                                    </span>
-                                </div>
-                            </li>
-
-                            <li className="header-cart-item flex-w flex-t m-b-12">
-                                <div className="header-cart-item-img">
-                                    <img src="images/item-cart-02.jpg" alt="IMG" />
-                                </div>
-
-                                <div className="header-cart-item-txt p-t-8">
-                                    <a href="#" className="header-cart-item-name m-b-18 hov-cl1 trans-04">
-                                        Converse All Star
-                                    </a>
-
-                                    <span className="header-cart-item-info">
-                                        1 x $39.00
-                                    </span>
-                                </div>
-                            </li>
-
-                            <li className="header-cart-item flex-w flex-t m-b-12">
-                                <div className="header-cart-item-img">
-                                    <img src="images/item-cart-03.jpg" alt="IMG" />
-                                </div>
-
-                                <div className="header-cart-item-txt p-t-8">
-                                    <a href="#" className="header-cart-item-name m-b-18 hov-cl1 trans-04">
-                                        Nixon Porter Leather
-                                    </a>
-
-                                    <span className="header-cart-item-info">
-                                        1 x $17.00
-                                    </span>
-                                </div>
-                            </li>
-                        </ul>
-
-                        <div className="w-full">
-                            <div className="header-cart-total w-full p-tb-40">
-                                Total: $75.00
-                            </div>
-
-                            <div className="header-cart-buttons flex-w w-full">
-                                <a href="cart" className="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
-                                    View Cart
-                                </a>
-
-                                <a href="cart" className="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
-                                    Check Out
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
+        <>
             {/* breadcrumb */}
             <div className="container">
                 <div className="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
-                    <a href="index.html" className="stext-109 cl8 hov-cl1 trans-04">
+                    <Link to={"/"} className="stext-109 cl8 hov-cl1 trans-04">
                         Principal
-                        <i className="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
-                    </a>
+                        <i
+                            className="fa fa-angle-right m-l-9 m-r-10"
+                            aria-hidden="true"
+                        ></i>
+                    </Link>
 
                     <span className="stext-109 cl4">
                         Cesta
@@ -131,54 +87,16 @@ const Cart = () => {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr className="table_row">
-                                                <td className="column-1">
-                                                    <div className="how-itemcart1">
-                                                        <img src="images/item-cart-04.jpg" alt="IMG" />
-                                                    </div>
-                                                </td>
-                                                <td className="column-2">Fresas frescas</td>
-                                                <td className="column-3">36.00 €</td>
-                                                <td className="column-4">
-                                                    <div className="wrap-num-product flex-w m-l-auto m-r-0">
-                                                        <div className="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
-                                                            <i className="fs-16 zmdi zmdi-minus"></i>
-                                                        </div>
-
-                                                        <input className="mtext-104 cl3 txt-center num-product" type="number" name="num-product1" value="1" />
-
-                                                        <div className="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
-                                                            <i className="fs-16 zmdi zmdi-plus"></i>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td className="column-5">36.00 €</td>
-                                            </tr>
-
-                                            <tr className="table_row">
-                                                <td className="column-1">
-                                                    <div className="how-itemcart1">
-                                                        <img src="images/item-cart-05.jpg" alt="IMG" />
-                                                    </div>
-                                                </td>
-                                                <td className="column-2">Chaqueta ligera</td>
-                                                <td className="column-3">16.00 €</td>
-                                                <td className="column-4">
-                                                    <div className="wrap-num-product flex-w m-l-auto m-r-0">
-                                                        <div className="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
-                                                            <i className="fs-16 zmdi zmdi-minus"></i>
-                                                        </div>
-
-                                                        <input className="mtext-104 cl3 txt-center num-product" type="number" name="num-product2" value="1" />
-
-                                                        <div className="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
-                                                            <i className="fs-16 zmdi zmdi-plus"></i>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td className="column-5">16.00 €</td>
-                                            </tr>
+                                            {cart.map((cartItem) => (
+                                                <CartItem
+                                                    key={cartItem.id}
+                                                    product={cartItem}
+                                                    handleIncrement={handleIncrement}
+                                                    handleDecrement={handleDecrement}
+                                                />
+                                            ))}
                                         </tbody>
+
                                     </table>
                                 </div>
 
@@ -265,14 +183,12 @@ const Cart = () => {
                                         </span>
                                     </div>
                                 </div>
-
-                               
                             </div> <Link className="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer" to={"/checkout"}> Pasar por Caja</Link>
                         </div>
                     </div>
                 </div>
             </div >
-        </div >
+        </>
     );
 }
 

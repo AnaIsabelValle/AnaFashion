@@ -1,25 +1,27 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import useAuth from '../../hooks/useAuth';
-
+import { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import { CartContext } from "../../context/CartContext";
 
 const Header = () => {
-  const { isAuthenticated } = useAuth();
   const [posWrapHeader, setPoswrapHeader] = useState(0);
   const [scrollToTop, setScrollTop] = useState(0);
+  const { itemAmount } = useContext(CartContext);
+
+  const { isAuthenticated } = useAuth();
 
   useEffect(() => {
-    const topBar = document.querySelector('.top-bar');
+    const topBar = document.querySelector(".top-bar");
     if (topBar) {
       setPoswrapHeader(topBar.offsetHeight);
     }
     const onScroll = () => {
       setScrollTop(window.pageXOffset || document.documentElement.scrollTop);
     };
-    window.addEventListener('scroll', onScroll);
+    window.addEventListener("scroll", onScroll);
 
     return () => {
-      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener("scroll", onScroll);
     };
   }, []);
 
@@ -29,17 +31,24 @@ const Header = () => {
   return (
     <header>
       {/* Header desktop */}
-      <div className={`container-menu-desktop ${isFixedMenu ? 'fix-menu-desktop' : ''}`} style={{ height: '124px' }}>
-
+      <div
+        className={`container-menu-desktop ${
+          isFixedMenu ? "fix-menu-desktop" : ""
+        }`}
+        style={{ height: "124px" }}
+      >
         {/* Topbar */}
         <div className="top-bar">
           <div className="content-topbar flex-sb-m h-full container">
-            <div className="left-top-bar">Envío gratuito para compras superiores a 50€</div>
+            <div className="left-top-bar">
+              Envío gratuito para compras superiores a 50€
+            </div>
+
             <div className="right-top-bar flex-w h-full">
               {isAuthenticated ? (
                 <>
                   <Link to="/logout" className="flex-c-m trans-04 p-lr-25">
-                    Cerrar Sesión
+                    Cerrar sesión
                   </Link>
                 </>
               ) : (
@@ -48,10 +57,7 @@ const Header = () => {
                 </Link>
               )}
 
-              <Link
-                to="/register"
-                className="flex-c-m trans-04 p-lr-25"
-              >
+              <Link to="/register" className="flex-c-m trans-04 p-lr-25">
                 Registro
               </Link>
               <a href="#" className="flex-c-m trans-04 p-lr-25">
@@ -63,6 +69,7 @@ const Header = () => {
 
         <div className="wrap-menu-desktop" style={{ top: `${top}px` }}>
           <nav className="limiter-menu-desktop container">
+            {/* Logo desktop */}
             <Link to="/" className="logo">
               <img src="/images/icons/AnaFashion-logo-01.png" alt="IMG-LOGO" />
             </Link>
@@ -71,42 +78,26 @@ const Header = () => {
             <div className="menu-desktop">
               <ul className="main-menu">
                 <li className="active-menu">
-                  <Link
-                    to="/"
-                    className="flex-c-m trans-04 p-lr-25"
-                  >
+                  <Link to="/" className="flex-c-m trans-04 p-lr-25">
                     Home
                   </Link>
-                  <ul className="sub-menu">
-                  </ul>
+                  <ul className="sub-menu"></ul>
                 </li>
-                <Link
-                  to="/products"
-                  className="flex-c-m trans-04 p-lr-25"
-                >
+                <Link to="/products" className="flex-c-m trans-04 p-lr-25">
                   Artículos
                 </Link>
                 <li>
-                  <Link
-                    to="/cart"
-                    className="flex-c-m trans-04 p-lr-25"
-                  >
+                  <Link to="/cart" className="flex-c-m trans-04 p-lr-25">
                     Cesta
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to="/about"
-                    className="flex-c-m trans-04 p-lr-25"
-                  >
+                  <Link to="/about" className="flex-c-m trans-04 p-lr-25">
                     Acerca de
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to="/contact"
-                    className="flex-c-m trans-04 p-lr-25"
-                  >
+                  <Link to="/contact" className="flex-c-m trans-04 p-lr-25">
                     Contacto
                   </Link>
                 </li>
@@ -119,14 +110,19 @@ const Header = () => {
                 <i className="zmdi zmdi-search"></i>
               </div>
 
-              <div
+              <Link
                 className="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart"
-                data-notify="2"
+                data-notify={itemAmount}
+                to={"/cart"}
               >
                 <i className="zmdi zmdi-shopping-cart"></i>
-              </div>
+              </Link>
 
-              <a href="#" className="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
+              <a
+                href="#"
+                className="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"
+                data-notify="0"
+              >
                 <i className="zmdi zmdi-favorite-outline"></i>
               </a>
             </div>
@@ -149,14 +145,20 @@ const Header = () => {
             <i className="zmdi zmdi-search"></i>
           </div>
 
-          <div
-            className="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart"
-            data-notify="2"
+          <Link
+            className="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart"
+            // data-notify="2"
+            data-notify={itemAmount}
+            to={"/cart"}
           >
             <i className="zmdi zmdi-shopping-cart"></i>
-          </div>
+          </Link>
 
-          <a href="#" className="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti" data-notify="0">
+          <a
+            href="#"
+            className="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti"
+            data-notify="0"
+          >
             <i className="zmdi zmdi-favorite-outline"></i>
           </a>
         </div>
@@ -251,7 +253,12 @@ const Header = () => {
             <button className="flex-c-m trans-04">
               <i className="zmdi zmdi-search"></i>
             </button>
-            <input className="plh3" type="text" name="search" placeholder="Search..." />
+            <input
+              className="plh3"
+              type="text"
+              name="search"
+              placeholder="Search..."
+            />
           </form>
         </div>
       </div>
