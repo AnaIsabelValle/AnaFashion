@@ -79,7 +79,7 @@ const Header = () => {
               <ul className="main-menu">
                 <li className="active-menu">
                   <Link to="/" className="flex-c-m trans-04 p-lr-25">
-                    Home
+                    Principal
                   </Link>
                   <ul className="sub-menu"></ul>
                 </li>

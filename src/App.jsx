@@ -17,6 +17,7 @@ import AuthProvider from "./context/AuthContext";
 import "./css/util.css";
 import "./css/main.css";
 import CartProvider from "./context/CartContext";
+import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute";
 
 function App() {
 
@@ -35,7 +36,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/about" element={<About />} />
             <Route path="/cart" element={<Cart />} />
-            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/checkout" element={<ProtectedRoute><Checkout /></ProtectedRoute>} />
             <Route path="/paypal" element={<PayPal />} />
             <Route path="/finalpage" element={<FinalPage />} />
           </Routes>

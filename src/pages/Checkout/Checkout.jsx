@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { API_BASE_URL } from '../../utils/constants';
-
+import useAuth from "../../hooks/useAuth";
+// import UserService from "../../services/user.service";
 
 function Checkout() {
-    const navigate = useNavigate();
+    const { isAuthenticated, user, logoutUser } = useAuth();
 
-    /*  useEffect(() => {
-         navigate("/products/:id");
-      },[navigate]) */
+    const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
         nombre: '',
@@ -24,28 +23,36 @@ function Checkout() {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await fetch(`${API_BASE_URL}/users/1`);
-                if (!response.ok) {
-                    throw new Error('Error al cargar los datos del usuario');
-                }
-                const userData = await response.json();
-                const { name, addres, phone } = userData;
+
+                const userProfile = await UserService.getProfile(user.id);
+
                 setFormData({
-                    nombre: name.firstname || '',
-                    apellidos: name.lastname || '',
-                    telefono: phone || '',
-                    pais: addres.country || '',
-                    provincia: addres.province || '',
-                    ciudad: addres.city || '',
-                    direccion: addres.street || '',
-                    codigoPostal: addres.zipcode || ''
+                    nombre: userProfile.name.firstname || '',
+                    apellidos: userProfile.name.lastname || '',
+                    pais: userProfile.address?.country || '',
+                    provincia: userProfile.address?.province || '',
+                    ciudad: userProfile.address?.city || '',
+                    codigoPostal: userProfile.address?.zipcode || '',
+                    direccion: userProfile.address?.street || '',
+                    telefono: userProfile?.phone || '',
+
                 });
             } catch (error) {
                 console.error(error);
+                if (error.message == "TokenExpired") {
+                    logoutUser();
+                    navigate("/login");
+                } else {
+                    console.log("Ha ocurrido un error al realizar la petición");
+                }
             }
         };
-        fetchUserData();
-    }, []);
+
+        if (isAuthenticated) {
+            fetchUserData();
+        }
+
+    }, [user, isAuthenticated, logoutUser, navigate]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
