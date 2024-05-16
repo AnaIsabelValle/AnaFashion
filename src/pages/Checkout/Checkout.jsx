@@ -1,15 +1,18 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { API_BASE_URL } from '../../utils/constants';
+import React, { useState, useEffect, useContext, useCallback } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import useAuth from "../../hooks/useAuth";
 import { CartContext } from "../../context/CartContext";
-// import UserService from "../../services/user.service";
+import OrderService from "../../services/order.service";
+import UserService from "../../services/user.service";
 
 function Checkout() {
     const { isAuthenticated, user, logoutUser } = useAuth();
     const { cart, total, clearCart } = useContext(CartContext);
 
     const navigate = useNavigate();
+
+    let location = useLocation();
+    let paypalOK = location.state?.paypalOK;
 
     const [formData, setFormData] = useState({
         firstname: '',
@@ -61,97 +64,145 @@ function Checkout() {
         setFormData({ ...formData, [name]: value });
     };
     const handleOrder = () => {
-        window.alert("Hola handleRealizarPedido..");
+        navigate("/paypal", { state: { previousPage: "/checkout" } });
     };
+    const makeOrder = useCallback(() => {
+        const orderItems = cart.map((item) => {
+            return {
+                product: item.id,
+                name: item.name,
+                quantity: item.amount,
+                price: item.price,
+            };
+        });
+
+        const order = {
+            user: user.id,
+            orderItems,
+            shippingAddrees: {
+                country: formData.country,
+                province: formData.province,
+                city: formData.city,
+                zipcode: formData.zipcode,
+                street: formData.address,
+            },
+            totalPrice: total,
+            paymentMethod: "paypal",
+            isDelivered: false,
+            deliveredAt: null,
+        };
+
+        console.log("ORDER: ", order);
+        return order;
+    }, [user.id, formData, cart, total]);
+
+    useEffect(() => {
+        const saveOrder = async () => {
+            try {
+                const newOrder = await OrderService.createOrder(makeOrder());
+                console.log("Pedido creado con éxito:", newOrder);
+            } catch (error) {
+                console.error("Error al realizar el pedido:", error);
+            }
+        };
+
+        if (paypalOK) {
+            paypalOK = false; // Evita el doble renderizado
+            saveOrder();
+            clearCart();
+            navigate("/finalpage");
+        }
+    }, [paypalOK, navigate, clearCart, makeOrder]);
 
     return (
-        <div className="container-fluid">
-            <div className="row px-xl-5">
-                <div className="col-lg-8">
-                    <h5 className="section-title position-relative text-uppercase mb-3">
-                        <span>Detalle de facturación</span>
-                    </h5>
-                    <div className="bg-light p-30 mb-5">
-                        <div className="row">
-                            <div className="col-md-6 form-group">
-                                <label>Nombre</label>
-                                <input className="form-control" type="text" name="firstname" value={formData.firstname} onChange={handleChange} placeholder="Nombre" />
-                            </div>
-                            <div className="col-md-6 form-group">
-                                <label>Apellidos</label>
-                                <input className="form-control" type="text" name=" lastname" value={formData.apellidos} onChange={handleChange} placeholder="Apellidos" />
-                            </div>
-                            <div className="col-md-6 form-group">
-                                <label>No Teléfono</label>
-                                <input className="form-control" type="text" name="phone" value={formData.phone} onChange={handleChange} placeholder="No Teléfono" />
+        <div className="container-fluid p-t-100 p-b-100">
+            <div className="container-fluid">
+                <div className="row px-xl-5">
+                    <div className="col-lg-8">
+                        <h5 className="section-title position-relative text-uppercase mb-3">
+                            <span>Detalle de facturación</span>
+                        </h5>
+                        <div className="bg-light p-30 mb-5">
+                            <div className="row">
+                                <div className="col-md-6 form-group">
+                                    <label>Nombre</label>
+                                    <input className="form-control" type="text" name="firstname" value={formData.firstname} onChange={handleChange} placeholder="Nombre" />
+                                </div>
+                                <div className="col-md-6 form-group">
+                                    <label>Apellidos</label>
+                                    <input className="form-control" type="text" name=" lastname" value={formData.apellidos} onChange={handleChange} placeholder="Apellidos" />
+                                </div>
+                                <div className="col-md-6 form-group">
+                                    <label>No Teléfono</label>
+                                    <input className="form-control" type="text" name="phone" value={formData.phone} onChange={handleChange} placeholder="No Teléfono" />
+                                </div>
+
+                                <div className="col-md-6 form-group">
+                                    <label>País</label>
+                                    <input className="form-control" type="text" name="country" value={formData.country} onChange={handleChange} placeholder="País" />
+                                </div>
+                                <div className="col-md-6 form-group">
+                                    <label>Provincia/Estado</label>
+                                    <input className="form-control" type="text" name=" province" value={formData.province} onChange={handleChange} placeholder="Provincia/Estado" />
+                                </div>
+                                <div className="col-md-6 form-group">
+                                    <label>Pueblo/Ciudad</label>
+                                    <input className="form-control" type="text" name="city" value={formData.city} onChange={handleChange} placeholder="Pueblo/Ciudad" />
+                                </div>
+                                <div className="col-md-6 form-group">
+                                    <label>Dirección</label>
+                                    <input className="form-control" type="text" name="address" value={formData.address} onChange={handleChange} placeholder="Dirección" />
+                                </div>
+                                <div className="col-md-6 form-group">
+                                    <label>Código Postal / Zip</label>
+                                    <input className="form-control" type="text" name=" zipcode" value={formData.zipcode} onChange={handleChange} placeholder="Código Postal / Zip" />
+                                </div>
                             </div>
 
-                            <div className="col-md-6 form-group">
-                                <label>País</label>
-                                <input className="form-control" type="text" name="country" value={formData.country} onChange={handleChange} placeholder="País" />
-                            </div>
-                            <div className="col-md-6 form-group">
-                                <label>Provincia/Estado</label>
-                                <input className="form-control" type="text" name=" province" value={formData.province} onChange={handleChange} placeholder="Provincia/Estado" />
-                            </div>
-                            <div className="col-md-6 form-group">
-                                <label>Pueblo/Ciudad</label>
-                                <input className="form-control" type="text" name="city" value={formData.city} onChange={handleChange} placeholder="Pueblo/Ciudad" />
-                            </div>
-                            <div className="col-md-6 form-group">
-                                <label>Dirección</label>
-                                <input className="form-control" type="text" name="address" value={formData.address} onChange={handleChange} placeholder="Dirección" />
-                            </div>
-                            <div className="col-md-6 form-group">
-                                <label>Código Postal / Zip</label>
-                                <input className="form-control" type="text" name=" zipcode" value={formData.zipcode} onChange={handleChange} placeholder="Código Postal / Zip" />
-                            </div>
                         </div>
-
                     </div>
-                </div>
-            
-                <div className="col-lg-4 m-lr-auto m-b-50">
-          <div className="checkout_order">
-            <h5 className="mtext-109 cl2 p-b-30">PEDIDO</h5>
-            <div className="checkout_order_product">
-              <ul>
-                <li>
-                  <span className="top_text">Productos</span>
-                  <span className="top_text">Total</span>
-                </li>
 
-                {cart.map((cartItem, index) => (
-                  <li key={cartItem.id}>
-                    {("00" + (index + 1)).substring(
-                      ("00" + (index + 1)).length - 2
-                    )}
-                    . {cartItem.name}{" "}
-                    <span>
-                      {(cartItem.price * cartItem.amount).toFixed(2)} €
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="checkout_order__total">
-              <ul>
-                <li>
-                  Total <span>{total.toFixed(2)} €</span>
-                </li>
-              </ul>
-            </div>
+                    <div className="col-lg-4 m-lr-auto m-b-50">
+                        <div className="checkout__order">
+                            <h5 className="mtext-109 cl2 p-b-30">PEDIDO</h5>
+                            <div className="checkout__order__product">
+                                <ul>
+                                    <li>
+                                        <span className="top__text">Productos</span>
+                                        <span className="top__text">Total</span>
+                                    </li>
 
-            <button
-              className="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer"
-              onClick={handleOrder}
-              disabled={cart.length === 0}
-            >
-              Realizar Pedido
-            </button>
-          </div>
-        </div>
-                {/* <div className="col-lg-4">
+                                    {cart.map((cartItem, index) => (
+                                        <li key={cartItem.id}>
+                                            {("00" + (index + 1)).substring(
+                                                ("00" + (index + 1)).length - 2
+                                            )}
+                                            . {cartItem.name}{" "}
+                                            <span>
+                                                {(cartItem.price * cartItem.amount).toFixed(2)} €
+                                            </span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                            <div className="checkout__order__total">
+                                <ul>
+                                    <li>
+                                        Total <span>{total.toFixed(2)} €</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <button
+                                className="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer"
+                                onClick={handleOrder}
+                                disabled={cart.length === 0}
+                            >
+                                Realizar Pedido
+                            </button>
+                        </div>
+                    </div>
+                    {/* <div className="col-lg-4">
                     <div className="bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
                         <h4 className="mtext-109 cl2 p-b-30">
                             Total de la Cesta
@@ -215,6 +266,7 @@ function Checkout() {
                         </div>
                     </div>
                 </div> */}
+                </div>
             </div>
         </div>
     );

@@ -37,8 +37,8 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/checkout" element={<ProtectedRoute><Checkout /></ProtectedRoute>} />
-            <Route path="/paypal" element={<PayPal />} />
-            <Route path="/finalpage" element={<FinalPage />} />
+            <Route path="/paypal" element={<ProtectedRoute><PayPal /></ProtectedRoute>}/>
+            <Route path="/finalpage" element={<ProtectedRoute><FinalPage /> </ProtectedRoute>} />
           </Routes>
           <Footer />
         </Router>

@@ -1,34 +1,35 @@
 import Cookie from "js-cookie";
 import { API_BASE_URL } from "../utils/constants";
 
-const getProfile = async (id) => {
+const createOrder = async (order) => {
   const token = Cookie.get("jwt");
 
   if (!token) {
     throw new Error("Token not found");
   }
 
-  const response = await fetch(`${API_BASE_URL}/users/${id}`, {
-    method: "GET",
+  const response = await fetch(`${API_BASE_URL}/orders`, {
+    method: "POST",
     headers: {
+      "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
+    body: JSON.stringify(order),
   });
 
   if (!response.ok) {
-    if (response.status === 401 || response.status === 403) {
+    if (response.status === 401) {
       throw new Error("TokenExpired");
     }
-    throw new Error("Error in server response");
+    throw new Error("Error saving order");
   }
 
   const data = await response.json();
-
   return data;
 };
 
-const UserService = {
-  getProfile,
+const OrderService = {
+  createOrder,
 };
 
-export default UserService;
+export default OrderService;
