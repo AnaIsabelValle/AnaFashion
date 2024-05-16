@@ -1,23 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { API_BASE_URL } from '../../utils/constants';
 import useAuth from "../../hooks/useAuth";
+import { CartContext } from "../../context/CartContext";
 // import UserService from "../../services/user.service";
 
 function Checkout() {
     const { isAuthenticated, user, logoutUser } = useAuth();
+    const { cart, total, clearCart } = useContext(CartContext);
 
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
-        nombre: '',
-        apellidos: '',
-        telefono: '',
-        pais: '',
-        provincia: '',
-        ciudad: '',
-        direccion: '',
-        codigoPostal: ''
+        firstname: '',
+        lastname: '',
+        country: '',
+        province: '',
+        city: '',
+        zipcode: '',
+        address: '',
+        phone: "",
     });
 
     useEffect(() => {
@@ -27,14 +29,14 @@ function Checkout() {
                 const userProfile = await UserService.getProfile(user.id);
 
                 setFormData({
-                    nombre: userProfile.name.firstname || '',
-                    apellidos: userProfile.name.lastname || '',
-                    pais: userProfile.address?.country || '',
-                    provincia: userProfile.address?.province || '',
-                    ciudad: userProfile.address?.city || '',
+                    firstname: userProfile.name.firstname || '',
+                    lastname: userProfile.name.lastname || '',
+                    country: userProfile.address?.country || '',
+                    province: userProfile.address?.province || '',
+                    city: userProfile.address?.city || '',
                     codigoPostal: userProfile.address?.zipcode || '',
-                    direccion: userProfile.address?.street || '',
-                    telefono: userProfile?.phone || '',
+                    address: userProfile.address?.street || '',
+                    phone: userProfile?.phone || '',
 
                 });
             } catch (error) {
@@ -73,36 +75,36 @@ function Checkout() {
                         <div className="row">
                             <div className="col-md-6 form-group">
                                 <label>Nombre</label>
-                                <input className="form-control" type="text" name="nombre" value={formData.nombre} onChange={handleChange} placeholder="Nombre" />
+                                <input className="form-control" type="text" name="firstname" value={formData.firstname} onChange={handleChange} placeholder="Nombre" />
                             </div>
                             <div className="col-md-6 form-group">
                                 <label>Apellidos</label>
-                                <input className="form-control" type="text" name="apellidos" value={formData.apellidos} onChange={handleChange} placeholder="Apellidos" />
+                                <input className="form-control" type="text" name=" lastname" value={formData.apellidos} onChange={handleChange} placeholder="Apellidos" />
                             </div>
                             <div className="col-md-6 form-group">
                                 <label>No Teléfono</label>
-                                <input className="form-control" type="text" name="telefono" value={formData.telefono} onChange={handleChange} placeholder="No Teléfono" />
+                                <input className="form-control" type="text" name="phone" value={formData.phone} onChange={handleChange} placeholder="No Teléfono" />
                             </div>
 
                             <div className="col-md-6 form-group">
                                 <label>País</label>
-                                <input className="form-control" type="text" name="pais" value={formData.pais} onChange={handleChange} placeholder="País" />
+                                <input className="form-control" type="text" name="country" value={formData.country} onChange={handleChange} placeholder="País" />
                             </div>
                             <div className="col-md-6 form-group">
                                 <label>Provincia/Estado</label>
-                                <input className="form-control" type="text" name="provincia" value={formData.provincia} onChange={handleChange} placeholder="Provincia/Estado" />
+                                <input className="form-control" type="text" name=" province" value={formData.province} onChange={handleChange} placeholder="Provincia/Estado" />
                             </div>
                             <div className="col-md-6 form-group">
                                 <label>Pueblo/Ciudad</label>
-                                <input className="form-control" type="text" name="ciudad" value={formData.ciudad} onChange={handleChange} placeholder="Pueblo/Ciudad" />
+                                <input className="form-control" type="text" name="city" value={formData.city} onChange={handleChange} placeholder="Pueblo/Ciudad" />
                             </div>
                             <div className="col-md-6 form-group">
                                 <label>Dirección</label>
-                                <input className="form-control" type="text" name="direccion" value={formData.direccion} onChange={handleChange} placeholder="Dirección" />
+                                <input className="form-control" type="text" name="address" value={formData.address} onChange={handleChange} placeholder="Dirección" />
                             </div>
                             <div className="col-md-6 form-group">
                                 <label>Código Postal / Zip</label>
-                                <input className="form-control" type="text" name="codigoPostal" value={formData.codigoPostal} onChange={handleChange} placeholder="Código Postal / Zip" />
+                                <input className="form-control" type="text" name=" zipcode" value={formData.zipcode} onChange={handleChange} placeholder="Código Postal / Zip" />
                             </div>
                         </div>
 

@@ -71,7 +71,7 @@ const Header = () => {
           <nav className="limiter-menu-desktop container">
             {/* Logo desktop */}
             <Link to="/" className="logo">
-              <img src="/images/icons/AnaFashion-logo-01.png" alt="IMG-LOGO" />
+              <img src="/images/icons/Logo-AnaFashion.png" alt="IMG-LOGO" />
             </Link>
 
             {/* Menu desktop */}
@@ -135,7 +135,7 @@ const Header = () => {
         {/* Logo moblie */}
         <div className="logo-mobile">
           <Link to="/" className="logo">
-            <img src="/images/icons/AnaFashion-logo-01.png" alt="IMG-LOGO" />
+            <img src="/images/icons/ Logo-AnaFashion.png" alt="IMG-LOGO" />
           </Link>
         </div>
 
