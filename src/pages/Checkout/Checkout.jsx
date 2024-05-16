@@ -112,13 +112,13 @@ function Checkout() {
                 </div>
             
                 <div className="col-lg-4 m-lr-auto m-b-50">
-          <div className="checkoutorder">
+          <div className="checkout_order">
             <h5 className="mtext-109 cl2 p-b-30">PEDIDO</h5>
-            <div className="checkoutorderproduct">
+            <div className="checkout_order_product">
               <ul>
                 <li>
-                  <span className="toptext">Productos</span>
-                  <span className="toptext">Total</span>
+                  <span className="top_text">Productos</span>
+                  <span className="top_text">Total</span>
                 </li>
 
                 {cart.map((cartItem, index) => (
@@ -134,7 +134,7 @@ function Checkout() {
                 ))}
               </ul>
             </div>
-            <div className="checkoutorder__total">
+            <div className="checkout_order__total">
               <ul>
                 <li>
                   Total <span>{total.toFixed(2)} €</span>
