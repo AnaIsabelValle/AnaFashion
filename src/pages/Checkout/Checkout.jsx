@@ -22,7 +22,7 @@ function Checkout() {
         city: '',
         zipcode: '',
         address: '',
-        phone: "",
+        phone: '',
     });
 
     useEffect(() => {
@@ -37,7 +37,7 @@ function Checkout() {
                     country: userProfile.address?.country || '',
                     province: userProfile.address?.province || '',
                     city: userProfile.address?.city || '',
-                    codigoPostal: userProfile.address?.zipcode || '',
+                    zipcode: userProfile.address?.zipcode || '',
                     address: userProfile.address?.street || '',
                     phone: userProfile?.phone || '',
 
@@ -130,7 +130,7 @@ function Checkout() {
                                 </div>
                                 <div className="col-md-6 form-group">
                                     <label>Apellidos</label>
-                                    <input className="form-control" type="text" name=" lastname" value={formData.apellidos} onChange={handleChange} placeholder="Apellidos" />
+                                    <input className="form-control" type="text" name="lastname" value={formData.lastname} onChange={handleChange} placeholder="Apellidos" />
                                 </div>
                                 <div className="col-md-6 form-group">
                                     <label>No Teléfono</label>
@@ -143,7 +143,7 @@ function Checkout() {
                                 </div>
                                 <div className="col-md-6 form-group">
                                     <label>Provincia/Estado</label>
-                                    <input className="form-control" type="text" name=" province" value={formData.province} onChange={handleChange} placeholder="Provincia/Estado" />
+                                    <input className="form-control" type="text" name="province" value={formData.province} onChange={handleChange} placeholder="Provincia/Estado" />
                                 </div>
                                 <div className="col-md-6 form-group">
                                     <label>Pueblo/Ciudad</label>
@@ -155,7 +155,7 @@ function Checkout() {
                                 </div>
                                 <div className="col-md-6 form-group">
                                     <label>Código Postal / Zip</label>
-                                    <input className="form-control" type="text" name=" zipcode" value={formData.zipcode} onChange={handleChange} placeholder="Código Postal / Zip" />
+                                    <input className="form-control" type="text" name="zipcode" value={formData.zipcode} onChange={handleChange} placeholder="Código Postal / Zip" />
                                 </div>
                             </div>
 

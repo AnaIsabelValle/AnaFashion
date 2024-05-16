@@ -31,7 +31,7 @@ const PayPal = () => {
     <>
       <div className='wrapper'>
         <FaPaypal className='paypal' />
-        <form onSubmit={confirmPaypal}>
+        <form onSubmit={confirmPayPal}>
           <h1>Pagar con PayPal</h1>
           <p>Para comenzar, introduce tu correo electrónico</p>
           <div className='input-box'>
