@@ -60,7 +60,7 @@ function Checkout() {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };
-    const handleRealizarPedido = () => {
+    const handleOrder = () => {
         window.alert("Hola handleRealizarPedido..");
     };
 
@@ -110,7 +110,48 @@ function Checkout() {
 
                     </div>
                 </div>
-                <div className="col-lg-4">
+            
+                <div className="col-lg-4 m-lr-auto m-b-50">
+          <div className="checkoutorder">
+            <h5 className="mtext-109 cl2 p-b-30">PEDIDO</h5>
+            <div className="checkoutorderproduct">
+              <ul>
+                <li>
+                  <span className="toptext">Productos</span>
+                  <span className="toptext">Total</span>
+                </li>
+
+                {cart.map((cartItem, index) => (
+                  <li key={cartItem.id}>
+                    {("00" + (index + 1)).substring(
+                      ("00" + (index + 1)).length - 2
+                    )}
+                    . {cartItem.name}{" "}
+                    <span>
+                      {(cartItem.price * cartItem.amount).toFixed(2)} €
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="checkoutorder__total">
+              <ul>
+                <li>
+                  Total <span>{total.toFixed(2)} €</span>
+                </li>
+              </ul>
+            </div>
+
+            <button
+              className="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer"
+              onClick={handleOrder}
+              disabled={cart.length === 0}
+            >
+              Realizar Pedido
+            </button>
+          </div>
+        </div>
+                {/* <div className="col-lg-4">
                     <div className="bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
                         <h4 className="mtext-109 cl2 p-b-30">
                             Total de la Cesta
@@ -173,7 +214,7 @@ function Checkout() {
                             </button>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
     );
