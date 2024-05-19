@@ -1,4 +1,4 @@
-![Logo](public/images/icons/AnaFashion-logo-01.png.png)
+![Logo](public/images/icons/AnaFashion-logo-01.png)
 # AnaFashionWeb - Aplicación de Moda Online
 
 Bienvenido/a a AnaFashion, una aplicación de tipo ecommerce de moda online desarrollada con React y Vite.
