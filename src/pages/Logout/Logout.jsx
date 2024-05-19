@@ -29,7 +29,7 @@ const Logout = () => {
                   to="/"
                   className="m-b-30 flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer"
                 >
-                  Go to Home
+                  Ir a Home
                 </Link>
               </div>
             </div>

@@ -4,7 +4,7 @@
       "id": "1",
       "name": "Camisa blanca",
       "category": "mujer",
-      "price": 35.0,
+      "price": 35,
       "description": "Camisa de manga corta ",
       "image": "/images/product-01.jpg",
       "created_at": "24/04/2024"
@@ -22,7 +22,7 @@
       "id": "3",
       "name": "Blusa azul",
       "category": "mujer",
-      "price": 25.0,
+      "price": 25,
       "description": "Blusa de manga larga azul",
       "image": "/images/product-03.jpg",
       "created_at": "24/04/2024"
@@ -31,7 +31,7 @@
       "id": "4",
       "name": "Abrigo marrón",
       "category": "mujer",
-      "price": 65.0,
+      "price": 65,
       "description": "Abrigo de lino de manga larga marrón",
       "image": "/images/product-04.jpg",
       "created_at": "24/04/2024"
@@ -40,7 +40,7 @@
       "id": "5",
       "name": "Blusa gris",
       "category": "mujer",
-      "price": 30.0,
+      "price": 30,
       "description": "Blusa de manga larga gris",
       "image": "/images/product-05.jpg",
       "created_at": "24/04/2024"
@@ -49,7 +49,7 @@
       "id": "6",
       "name": "Reloj negro",
       "category": "hombre",
-      "price": 40.0,
+      "price": 40,
       "description": "Reloj de esfera cirular negro",
       "image": "/images/product-06.jpg",
       "created_at": "24/04/2024"
@@ -58,7 +58,7 @@
       "id": "7",
       "name": "Blazer",
       "category": "mujer",
-      "price": 55.0,
+      "price": 55,
       "description": "Blazer de cuadros",
       "image": "/images/product-07.jpg",
       "created_at": "24/04/2024"
@@ -67,7 +67,7 @@
       "id": "8",
       "name": "Camisa blanca",
       "category": "mujer",
-      "price": 32.0,
+      "price": 32,
       "description": "Camisa de manga corta  blanca con un dibujo ",
       "image": "/images/product-08.jpg",
       "created_at": "24/04/2024"
@@ -76,7 +76,7 @@
       "id": "9",
       "name": "Zapatilla negra",
       "category": "mujer",
-      "price": 75.0,
+      "price": 75,
       "description": "Zapapilas converse negra ",
       "image": "/images/product-09.jpg",
       "created_at": "24/04/2024"
@@ -85,7 +85,7 @@
       "id": "10",
       "name": "Camisa mujer",
       "category": "mujer",
-      "price": 20.0,
+      "price": 20,
       "description": "Camisa negra ",
       "image": "/images/product-10.jpg",
       "created_at": "24/04/2024"
@@ -129,7 +129,129 @@
       "phone": "+34 111 222 333",
       "role": "User",
       "enabled": true
+    },
+    {
+      "email": "axa@axa.com",
+      "password": "$2a$10$z8LXl8lHYEMMUPFEnt7pJujOIZuoW.gsfHNekqgKajgEA2QpEnAq2",
+      "username": "AxaAxaAxa",
+      "role": "User",
+      "enabled": true,
+      "id": "3pnmLmA"
+    },
+    {
+      "email": "margarita@rosales.co",
+      "password": "$2a$10$FbSoCTP8jxTzjZ8BwNqCXO7gb3PDoTwP751wCSuAOqjSFU996QXc.",
+      "username": "Margarita",
+      "role": "User",
+      "enabled": true,
+      "id": "hTbxz59",
+      "name": {
+        "firstname": "Margarita",
+        "lastname": "Rosales"
+      },
+      "address": {
+        "country": "España",
+        "province": "Santa Cruz de Tenerife",
+        "city": "Valle de Guerra / La Laguna",
+        "zipcode": "38270",
+        "street": "CL La Palma, nº 30"
+      },
+      "phone": "123456789"
     }
   ],
-  "orders": []
+  "orders": [
+    {
+      "user": "1",
+      "orderItems": [
+        {
+          "product": "2",
+          "name": "Blusa blanca",
+          "quantity": 1,
+          "price": "40.0"
+        },
+        {
+          "product": "3",
+          "name": "Blusa azul",
+          "quantity": 1,
+          "price": 25
+        }
+      ],
+      "shippingAddrees": {
+        "country": "",
+        "province": "",
+        "city": "",
+        "zipcode": "",
+        "street": ""
+      },
+      "totalPrice": 65,
+      "paymentMethod": "paypal",
+      "isDelivered": false,
+      "deliveredAt": null,
+      "id": 1
+    },
+    {
+      "user": "1",
+      "orderItems": [
+        {
+          "product": "2",
+          "name": "Blusa blanca",
+          "quantity": 1,
+          "price": "40.0"
+        }
+      ],
+      "shippingAddrees": {
+        "country": "",
+        "province": "",
+        "city": "",
+        "zipcode": "",
+        "street": ""
+      },
+      "totalPrice": 40,
+      "paymentMethod": "paypal",
+      "isDelivered": false,
+      "deliveredAt": null,
+      "id": 2
+    },
+    {
+      "user": "hTbxz59",
+      "orderItems": [
+        {
+          "product": "6",
+          "name": "Reloj negro",
+          "quantity": 1,
+          "price": 40
+        },
+        {
+          "product": "8",
+          "name": "Camisa blanca",
+          "quantity": 1,
+          "price": 32
+        },
+        {
+          "product": "9",
+          "name": "Zapatilla negra",
+          "quantity": 1,
+          "price": 75
+        }
+      ],
+      "shippingAddress": {
+        "name": {
+          "firstname": "Margarita",
+          "lastname": "Rosales"
+        },
+        "address": {
+          "country": "España",
+          "province": "Santa Cruz de Tenerife",
+          "city": "Valle de Guerra / La Laguna",
+          "zipcode": "38270",
+          "street": "CL La Palma,nº29"
+        }
+      },
+      "totalPrice": 147,
+      "paymentMethod": "paypal",
+      "isDelivered": false,
+      "deliveredAt": null,
+      "id": 3
+    }
+  ]
 }

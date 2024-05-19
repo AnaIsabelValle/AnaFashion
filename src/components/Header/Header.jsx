@@ -32,9 +32,8 @@ const Header = () => {
     <header>
       {/* Header desktop */}
       <div
-        className={`container-menu-desktop ${
-          isFixedMenu ? "fix-menu-desktop" : ""
-        }`}
+        className={`container-menu-desktop ${isFixedMenu ? "fix-menu-desktop" : ""
+          }`}
         style={{ height: "124px" }}
       >
         {/* Topbar */}
@@ -47,22 +46,27 @@ const Header = () => {
             <div className="right-top-bar flex-w h-full">
               {isAuthenticated ? (
                 <>
+                  <Link to="/orders" className="flex-c-m trans-04 p-lr-25">
+                    Compras
+                  </Link>
+
                   <Link to="/logout" className="flex-c-m trans-04 p-lr-25">
                     Cerrar sesión
                   </Link>
+                  <Link to="/profile" className="flex-c-m trans-04 p-lr-25">
+                    Perfil
+                  </Link>
                 </>
               ) : (
-                <Link to="/login" className="flex-c-m trans-04 p-lr-25">
-                  Acceso
-                </Link>
+                <>
+                  <Link to="/login" className="flex-c-m trans-04 p-lr-25">
+                    Acceso
+                  </Link>
+                  <Link to="/register" className="flex-c-m trans-04 p-lr-25">
+                    Registro
+                  </Link>
+                </>
               )}
-
-              <Link to="/register" className="flex-c-m trans-04 p-lr-25">
-                Registro
-              </Link>
-              <a href="#" className="flex-c-m trans-04 p-lr-25">
-                Euros
-              </a>
             </div>
           </div>
         </div>
@@ -71,7 +75,7 @@ const Header = () => {
           <nav className="limiter-menu-desktop container">
             {/* Logo desktop */}
             <Link to="/" className="logo">
-              <img src="/images/icons/Logo-AnaFashion.png" alt="IMG-LOGO" />
+              <img src="/images/icons/AnaFashion-logo-01.png" alt="IMG-LOGO" />
             </Link>
 
             {/* Menu desktop */}
@@ -79,9 +83,8 @@ const Header = () => {
               <ul className="main-menu">
                 <li className="active-menu">
                   <Link to="/" className="flex-c-m trans-04 p-lr-25">
-                    Principal
+                    Home
                   </Link>
-                  <ul className="sub-menu"></ul>
                 </li>
                 <Link to="/products" className="flex-c-m trans-04 p-lr-25">
                   Artículos
@@ -135,7 +138,7 @@ const Header = () => {
         {/* Logo moblie */}
         <div className="logo-mobile">
           <Link to="/" className="logo">
-            <img src="/images/icons/ Logo-AnaFashion.png" alt="IMG-LOGO" />
+            <img src="/images/icons/AnaFashion-logo-01.png" alt="IMG-LOGO" />
           </Link>
         </div>
 
@@ -147,7 +150,6 @@ const Header = () => {
 
           <Link
             className="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart"
-            // data-notify="2"
             data-notify={itemAmount}
             to={"/cart"}
           >

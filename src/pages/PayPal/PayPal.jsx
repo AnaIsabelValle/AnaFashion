@@ -1,8 +1,9 @@
 
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import { FaPaypal } from "react-icons/fa";
 import { useNavigate, Link } from 'react-router-dom';
 import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
 import './PayPal.css';
 
 
@@ -38,8 +39,8 @@ const PayPal = () => {
             <input id='name' type='email' placeholder='Correo electrónico o número de móvil' value={email} onChange={(e) => setEmail(e.target.value)} required />
             <label>¿Has olvidado tu correo electrónico?</label>
           </div>
-          <button className='pagar blue' type='submit'>Pagar</button>
-          <Link to="/checkout" className="cancelar"></Link>
+          <button className='pagar' type='submit'>Pagar</button>
+          <Link to="/checkout" className="cancelar"> Cancelar </Link>
         </form >
       </div>
     </>
