@@ -11,6 +11,7 @@
     "server": "npx json-server --watch data/db.json --routes data/routes.json --port 8000 -m ./node_modules/json-server-auth"
   },
   "dependencies": {
+    "jquery": "^3.2.1",
     "js-cookie": "^3.0.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

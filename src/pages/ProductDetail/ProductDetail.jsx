@@ -59,7 +59,7 @@ const ProductDetail = () => {
   if (loading) {
     return (
       <section className="h-screen flex justify-center items-center">
-        Loading...
+        Cargando...
       </section>
     );
   }

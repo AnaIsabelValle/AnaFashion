@@ -9,6 +9,7 @@ import OrderItem from "./OrderItem";
 const Orders = () => {
   const [orders, setOrders] = useState([]);
   const { isAuthenticated, user } = useAuth();
+  const isAdmin = user.role === "Admin";
 
   const navigate = useNavigate();
 
@@ -20,15 +21,17 @@ const Orders = () => {
 
   useEffect(() => {
     const fetchOrders = async () => {
-      // Get All Orders by user Id
-      const response = await fetch(`${API_BASE_URL}/orders?user=${user.id}`);
+      const response = await fetch(
+        `${API_BASE_URL}/orders${isAdmin ? "" : `?user=${user.id}`}`
+      );
+
       const data = await response.json();
 
       setOrders(data);
     };
 
     fetchOrders();
-  }, [user.id]);
+  }, [user.id, isAdmin]);
 
   if (!orders.length) {
     return (
@@ -71,15 +74,23 @@ const Orders = () => {
                       <tr className="table_head">
                         <th className="column-6">Detalle</th>
                         <th className="column-1">Pedido</th>
-                        <th className="column-2">Cdad. Productos</th>
+                        <th className="column-2">
+                          Cdad. <br />
+                          Productos
+                        </th>
                         <th className="column-3">Método de Pago</th>
+                        {isAdmin && <th className="column-3">Id. Cliente</th>}
                         <th className="column-4">Entregado</th>
                         <th className="column-5">Total</th>
                       </tr>
                     </thead>
                     <tbody>
                       {orders.map((orderItem) => (
-                        <OrderItem key={orderItem.id} order={orderItem} />
+                        <OrderItem
+                          key={orderItem.id}
+                          order={orderItem}
+                          isAdmin={isAdmin}
+                        />
                       ))}
                     </tbody>
                   </table>

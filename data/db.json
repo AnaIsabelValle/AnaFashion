@@ -127,7 +127,7 @@
         "street": "Cl La Palma, nº29"
       },
       "phone": "+34 111 222 333",
-      "role": "User",
+      "role": "Admin",
       "enabled": true
     },
     {
@@ -252,6 +252,57 @@
       "isDelivered": false,
       "deliveredAt": null,
       "id": 3
+    },
+    {
+      "user": "hTbxz59",
+      "orderItems": [
+        {
+          "product": "2",
+          "name": "Blusa blanca",
+          "quantity": 1,
+          "price": "40.0"
+        }
+      ],
+      "shippingAddress": {
+        "name": {
+          "firstname": "Margarita",
+          "lastname": "Rosales"
+        },
+        "address": {
+          "country": "España",
+          "province": "Santa Cruz de Tenerife",
+          "city": "Valle de Guerra / La Laguna",
+          "zipcode": "38270",
+          "street": "CL La Palma, nº 30"
+        }
+      },
+      "totalPrice": 40,
+      "paymentMethod": "paypal",
+      "isDelivered": false,
+      "deliveredAt": null,
+      "id": 4
+    },
+    {
+      "user": "hTbxz59",
+      "orderItems": [],
+      "shippingAddress": {
+        "name": {
+          "firstname": "Margarita",
+          "lastname": "Rosales"
+        },
+        "address": {
+          "country": "España",
+          "province": "Santa Cruz de Tenerife",
+          "city": "Valle de Guerra / La Laguna",
+          "zipcode": "38270",
+          "street": "CL La Palma, nº 30"
+        }
+      },
+      "totalPrice": 0,
+      "paymentMethod": "paypal",
+      "isDelivered": false,
+      "deliveredAt": null,
+      "id": 5
     }
   ]
 }

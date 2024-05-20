@@ -32,8 +32,9 @@ const Header = () => {
     <header>
       {/* Header desktop */}
       <div
-        className={`container-menu-desktop ${isFixedMenu ? "fix-menu-desktop" : ""
-          }`}
+        className={`container-menu-desktop ${
+          isFixedMenu ? "fix-menu-desktop" : ""
+        }`}
         style={{ height: "124px" }}
       >
         {/* Topbar */}
@@ -67,6 +68,9 @@ const Header = () => {
                   </Link>
                 </>
               )}
+              <a href="#" className="flex-c-m trans-04 p-lr-25">
+                Euros
+              </a>
             </div>
           </div>
         </div>
@@ -86,9 +90,11 @@ const Header = () => {
                     Home
                   </Link>
                 </li>
-                <Link to="/products" className="flex-c-m trans-04 p-lr-25">
-                  Artículos
-                </Link>
+                <li>
+                  <Link to="/products" className="flex-c-m trans-04 p-lr-25">
+                    Artículos
+                  </Link>
+                </li>
                 <li>
                   <Link to="/cart" className="flex-c-m trans-04 p-lr-25">
                     Cesta
@@ -175,27 +181,40 @@ const Header = () => {
 
       {/* Menu Mobile */}
       <div className="menu-mobile">
-        {/*  <ul className="topbar-mobile">
+        <ul className="topbar-mobile">
           <li>
-            <div className="left-top-bar">Free shipping for standard order over $100</div>
+            <div className="left-top-bar">
+              Envío gratuito para compras superiores a 50€
+            </div>
           </li>
 
           <li>
             <div className="right-top-bar flex-w h-full">
-              <a href="#" className="flex-c-m p-lr-10 trans-04">
-                Help & FAQs
-              </a>
+              {isAuthenticated ? (
+                <>
+                  <Link to="/orders" className="flex-c-m trans-04 p-lr-25">
+                    Compras
+                  </Link>
 
-              <a href="#" className="flex-c-m p-lr-10 trans-04">
-                My Account
-              </a>
-
-              <a href="#" className="flex-c-m p-lr-10 trans-04">
-                EN
-              </a>
-
-              <a href="#" className="flex-c-m p-lr-10 trans-04">
-                USD
+                  <Link to="/logout" className="flex-c-m trans-04 p-lr-25">
+                    Cerrar sesión
+                  </Link>
+                  <Link to="/profile" className="flex-c-m trans-04 p-lr-25">
+                    Perfil
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Link to="/login" className="flex-c-m trans-04 p-lr-25">
+                    Acceso
+                  </Link>
+                  <Link to="/register" className="flex-c-m trans-04 p-lr-25">
+                    Registro
+                  </Link>
+                </>
+              )}
+              <a href="#" className="flex-c-m trans-04 p-lr-25">
+                Euros
               </a>
             </div>
           </li>
@@ -203,45 +222,25 @@ const Header = () => {
 
         <ul className="main-menu-m">
           <li>
-            <a href="index.html">Home</a>
-            <ul className="sub-menu-m">
-              <li>
-                <a href="index.html">Homepage 1</a>
-              </li>
-              <li>
-                <a href="home-02.html">Homepage 2</a>
-              </li>
-              <li>
-                <a href="home-03.html">Homepage 3</a>
-              </li>
-            </ul>
-            <span className="arrow-main-menu-m">
-              <i className="fa fa-angle-right" aria-hidden="true"></i>
-            </span>
+            <Link to="/">Home</Link>
           </li>
 
           <li>
-            <a href="product.html">Shop</a>
+            <Link to="/products">Artículos</Link>
           </li>
 
           <li>
-            <a href="shoping-cart.html" className="label1 rs1" data-label1="hot">
-              Features
-            </a>
+            <Link to="/cart">Cesta</Link>
           </li>
 
           <li>
-            <a href="blog.html">Blog</a>
+            <Link to="/about">Acerca de</Link>
           </li>
 
           <li>
-            <a href="about.html">About</a>
+            <Link to="/contact">Contacto</Link>
           </li>
-
-          <li>
-            <a href="contact.html">Contact</a>
-          </li>
-        </ul> */}
+        </ul>
       </div>
 
       {/* Modal Search */}

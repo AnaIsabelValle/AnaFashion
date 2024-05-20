@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 
 /* eslint-disable react/prop-types */
-const OrderItem = ({ order }) => {
-  const { id, orderItems, paymentMethod, isDelivered, totalPrice } = order;
+const OrderItem = ({ order, isAdmin }) => {
+  const { id, user, orderItems, paymentMethod, isDelivered, totalPrice } =
+    order;
 
   return (
     <tr className="table_row" key={id}>
@@ -19,6 +20,9 @@ const OrderItem = ({ order }) => {
       <td className="column-3">
         {paymentMethod === "" ? "No especified" : paymentMethod}
       </td>
+
+      {isAdmin && <th className="column-3">{user}</th>}
+
       <td className="column-4">
         {isDelivered ? (
           <i className="zmdi zmdi-calendar-check"></i>
