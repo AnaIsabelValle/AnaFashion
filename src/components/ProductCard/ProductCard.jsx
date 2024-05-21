@@ -49,3 +49,13 @@ const ProductCard = ({ product }) => {
 }
 
 export default ProductCard
+
+
+/**
+ * 1.- Key Functions:
+ * Product Visualization: Displays the product's image, name, and price on a card.
+ * Link to Product Details: Provides a link to quickly access the full details of the product.
+ * Add to Wishlist Option: Offers the ability to add the product to a wishlist, with visual heart effects.
+ * 2.- Global Behavior:
+ * Card Interactivity: Allows users to quickly browse products and access more details if they are interested.
+ */

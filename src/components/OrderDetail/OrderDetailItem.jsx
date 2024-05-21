@@ -35,3 +35,13 @@ const OrderDetailItem = ({ orderItem }) => {
 };
 
 export default OrderDetailItem;
+
+/*
+ * 1.- Key Functions:
+ * Product Detail Retrieval: Utilizes the product ID associated with the order
+ * item to fetch its information, including the image, from the API.
+ * Image Loading Management: Controls the loading of the product image and displays it once it's available.
+ * Global Behavior:
+ * Product Detail Presentation: Displays the image, name, unit price, quantity, and total price of the product 
+ * within the order detail table
+*/

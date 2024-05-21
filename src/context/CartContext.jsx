@@ -114,3 +114,18 @@ const CartProvider = ({ children }) => {
 };
 
 export default CartProvider;
+
+/**
+ * 1. CartProvider: This is a component that wraps other components and provides 
+ * the shopping cart context. Inside CartProvider, the cart state (cart) is initialized,
+ *  and functions for adding, removing, and clearing cart items are defined.
+ * 2. Important Functions:
+ * addToCart(product, id, amount): This function adds a product to the cart. It takes three 
+ * arguments: product (the product object), id (a unique identifier for the product), and amount
+ *  (the quantity of products to add, with a default value of 1). If the product is already in the cart, 
+ * it updates the quantity instead of adding a new item.
+ * removeFromCart(id): This function removes a product from the cart based on its id.
+ * clearCart(): This function completely empties the cart.
+ * increaseAmount(id) and decreaseAmount(id): These functions are used to increase or decrease the quantity
+ *  of a product in the shopping cart, respectively.
+ */

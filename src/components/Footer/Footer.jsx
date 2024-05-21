@@ -83,3 +83,8 @@ const Footer = () => {
 };
 
 export default Footer;
+
+/**
+ * The Footer component:  doesn’t perform specific actions but serves
+ * as an essential part of the user interface to provide useful information to website visitors.
+ */

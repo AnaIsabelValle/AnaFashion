@@ -122,3 +122,18 @@ const OrderDetail = () => {
 };
 
 export default OrderDetail;
+
+/**
+ * 1.- Key Functions:
+ * Order Data Retrieval: Utilizes the order ID provided in the URL
+ * parameters to fetch the order details from the API.
+ * Loading and Error Handling: Controls the loading state while fetching 
+ * order data and handles any errors that may occur during the process.
+ * Secure Navigation: Verifies if the user is authenticated before allowing 
+ * access to the order detail page. If not, redirects the user to the login page.
+ * 2.- Global Behavior:
+ * Order Detail Presentation: Displays the products included in the order, along 
+ * with their price, quantity, and total.
+ * Total Price Calculation: Calculates and displays the total price of the order.
+ * Navigation Options: Provides a button for the user to navigate back to the previous page.
+ */

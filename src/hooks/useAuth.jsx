@@ -7,3 +7,8 @@ const useAuth = () => {
 };
 
 export default useAuth;
+
+/**
+ * useAuth:  is the way to access app authentication information
+ *  without having to manually pass props between components
+ */

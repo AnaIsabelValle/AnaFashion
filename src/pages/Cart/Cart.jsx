@@ -131,3 +131,17 @@ const Cart = () => {
 }
 
 export default Cart;
+
+
+/*
+ * The Cart component is responsible for displaying the contents of the shopping cart.
+ * 1.- Cart Display:
+ * It shows the products added to the cart, including the name, price, quantity, and subtotal of each item.
+ * It allows the user to increase or decrease the quantity of each product in the cart.
+ * It displays the total price of the purchase.
+ * 2.- Empty Cart Handling:
+ * If there are no products in the cart, it displays a message indicating that the cart is empty and provides
+ * a link to continue shopping.
+ * 3.- Navigation:
+ * It provides a button for the user to proceed to the checkout page ("Pasar por Caja").
+ */

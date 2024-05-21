@@ -268,3 +268,20 @@ const Header = () => {
 };
 
 export default Header;
+
+/*
+ * 1.- Key Functions:
+ * Cart Management: The component connects to the cart context (CartContext) 
+ * to retrieve information about the number of items in the cart (itemAmount)
+ * and display it in the cart icon.
+ * Authentication Management: It utilizes the useAuth hook to check if the user
+ * is authenticated. Depending on this, it displays links for logging in, registering,
+ * logging out, or accessing the profile.
+ * Scroll Handling: It uses state to determine the scroll bar position and adjust the 
+ * header style based on whether it is fixed at the top or not.
+ * 2.- Global Behavior:
+ * Navigation: Provides navigation links to different sections of the application, such 
+ * as the home page, product page, cart, About page, and Contact page.
+ * Interactivity: Offers interactions like product search, viewing the shopping cart, 
+ * and navigating between pages, both in the desktop and mobile versions of the application.
+ */

@@ -45,4 +45,16 @@ const CartItem = ({ product, handleIncrement, handleDecrement }) => {
   };
   
   export default CartItem;
+
+ /*
+  * The CartItem component is responsible for rendering an item in the shopping cart.
+  * Product Display:
+  * It displays the image, name, price, and quantity of a product in the shopping cart.
+  * It provides a visual representation of the product so that users can easily identify it.
+  * Quantity Control:
+  * It allows users to increase or decrease the quantity of a product in the cart using increment
+  * and decrement buttons.
+  * It utilizes the handleIncrement and handleDecrement events to modify the quantity of the product in the cart.
+ */
+   
   
