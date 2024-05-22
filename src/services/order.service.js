@@ -33,3 +33,11 @@ const OrderService = {
 };
 
 export default OrderService;
+
+
+
+/***
+ * This component provides a createOrder function that allows creating new orders on the server, 
+ * handling user authentication through JWT tokens, and appropriately handling server responses. 
+ * The OrderService object serves as an interface for accessing this functionality from other parts of the code.
+ */

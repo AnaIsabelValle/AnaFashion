@@ -69,3 +69,22 @@ const Products = () => {
 };
 
 export default Products;
+
+
+
+/*
+ * The Products component displays a list of available products. Initially, 
+ * it shows the first 4 products obtained from the API. Then, when the user 
+ * clicks the "Load More" button, more products are loaded, increasing the page
+ * number and making a new API call.
+ * (fetchProducts): This asynchronous function is responsible for fetching products 
+ * from the API using the current page number. If the number of products returned by 
+ * the API is less than 4, it sets the "hasMore" state to false to indicate that there 
+ * are no more products available to load. It then updates the state of the products by 
+ * adding the new products obtained to the existing list.
+ * Effect (useEffect): It's used to call the "fetchProducts" function whenever the page 
+ * number changes, ensuring that the updated products are obtained from the API.
+ * The component renders the list of products using the ProductCard component. Additionally, 
+ * it displays a "Load More" button that allows the user to load more products if available. 
+ * If there are no more products to load, the button disappears.
+ */

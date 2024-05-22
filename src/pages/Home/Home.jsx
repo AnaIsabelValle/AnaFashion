@@ -51,3 +51,19 @@ const Home = () => {
 }
 
 export default Home;
+
+/*
+ * Get Products:
+ * Functions: useEffect, useState
+ * This function is responsible for fetching the list of products
+ * from the API endpoint specified in the API_BASE_URL constant. Initially,
+ * it fetches the first page of products and updates the list when the page state changes.
+ * Show News:
+ * Components: ProductCard.
+ * It uses the ProductCard component to visually represent each product as a card,
+ * displaying its image, name, and other details.
+ * Paging and On-Demand Loading:
+ * It implements pagination functionality to load more products as the user scrolls down the page.
+ * The page state is updated when the user reaches the bottom of the page, triggering the fetching
+ *  of the next page of products.
+ */

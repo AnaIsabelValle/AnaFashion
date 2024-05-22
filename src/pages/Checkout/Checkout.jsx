@@ -274,3 +274,33 @@ function Checkout() {
 }
 
 export default Checkout;
+
+
+/*
+ * The functionality of the Checkout component:
+ * 1.- Initial Information Retrieval:
+ * Functions: useAuth, CartContext.
+ * Explanation: Retrieves information of the authenticated 
+ * user and the items in the shopping cart.
+ * 2.- Displaying the Billing Form:
+ * Functions: useState, handleChange.
+ * Explanation: Displays a form for the user to input billing details,
+ * including name, address, and payment method.
+ * 3.- Calculation and Display of Order Total:
+ * Functions: CartContext.
+ * Explanation: Calculates the order total and displays a list of cart 
+ * items along with their individual prices.
+ * 4.- Order Placement:
+ * Functions: handleOrder.
+ * Explanation: Allows the user to place the order by clicking the "Place Order" button.
+ * 5.- Saving Shipping Information and Redirecting to PayPal:
+ * Functions: handleOrder, UserService, navigate.
+ * Explanation: Saves the shipping information entered by the user and redirects 
+ * the user to the PayPal page to complete the payment.
+ * 6.- Confirmation and Cart Clearing After Payment:
+ * Functions: useEffect, OrderService, clearCart.
+ * Explanation: After payment is confirmed on PayPal, saves the order and clears the shopping cart.
+ * 7.- Redirection to Order Confirmation Page:
+ * Functions: navigate.
+ * Explanation: Finally, redirects the user to the order confirmation page
+ */

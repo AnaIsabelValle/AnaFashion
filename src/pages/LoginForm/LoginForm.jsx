@@ -113,3 +113,15 @@ export const LoginForm = () => {
 }
 
 export default LoginForm;
+
+/*
+ * This LoginForm component is responsible for displaying a login form.
+ * When the form is submitted, validation is performed on the email and password.
+ * If validation is successful, a request is sent to the server to log in using the provided email and password.
+ * If the login is successful, the user data and access token are stored in the authentication context using 
+ * the loginUser function of the useAuth hook.
+ * If there is an error during login, an appropriate error message is displayed.
+ * The component also provides a link to register if the user doesn't have an account.
+ * Additionally, it displays a background image and a "Acceso" title at the top, providing an attractive
+ *  visual interface for the login form.
+ */

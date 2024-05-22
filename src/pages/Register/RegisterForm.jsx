@@ -202,3 +202,24 @@ const RegisterForm = () => {
 };
 
 export default RegisterForm;
+
+/*
+ * useState: This hook is used to define state variables in the component. 
+ * In this case, it's used to manage the state of the input fields in the registration form,
+ * such as username, email, password, etc.
+ * useEffect: This hook is used to perform side effects in the component, such as checking user
+ * authentication or redirecting them after registering. In this case, it's used to check if the user
+ * is already authenticated and redirect them to the home page if so.
+ * The RegisterForm component is responsible for displaying a registration form for users to sign up on the website.
+ * (register): This function is responsible for sending a request to the server to register a new user.
+ * If the request is successful, it returns the user information and access token. In case of an error,
+ * it throws an exception with the message "Invalid credentials".
+ * (useEffect): This effect runs when the component mounts and checks if the user is already authenticated. 
+ * If so, it redirects the user to the home page.
+ * (handleSubmit): This function is triggered when the user submits the registration form. 
+ * It performs various validation checks on the input fields (such as if they are empty, if the email is valid, etc.).
+ * Then, it creates a user object with the information entered by the user and sends it to the server for registration.
+ * If the registration is successful, it displays a success message using Swal (SweetAlert2) and redirects the user to the home page.
+ * The component renders a form with input fields for the user to enter their username, email, password, and confirm password.
+ *  It also includes a link to log in if the user already has an account.
+ */

@@ -18,7 +18,7 @@ const OrderItem = ({ order, isAdmin }) => {
       <td className="column-1">{id}</td>
       <td className="column-2">{orderItems.length}</td>
       <td className="column-3">
-        {paymentMethod === "" ? "No especified" : paymentMethod}
+        {paymentMethod === "" ? "No especificicado" : paymentMethod}
       </td>
 
       {isAdmin && <th className="column-3">{user}</th>}
@@ -36,3 +36,9 @@ const OrderItem = ({ order, isAdmin }) => {
 };
 
 export default OrderItem;
+
+/*
+ * This component efficiently handles the rendering of order details,
+ * including conditional rendering for administrator users, displaying the payment method, 
+ * indicating the delivery status, and providing a link to view the complete order details.
+ */

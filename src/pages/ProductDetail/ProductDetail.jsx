@@ -128,3 +128,15 @@ const ProductDetail = () => {
 };
 
 export default ProductDetail;
+
+
+/***
+ * The ProductDetail component displays the details of a specific product, 
+ * including its name, price, description, and image. It uses the product ID
+ *  obtained from the URL parameters to make an API call and fetch the product details.
+ *  While the product information is being loaded, it shows a loading message. 
+ * If there's an error during the product details retrieval, it shows an error message. 
+ * Once the product details are obtained, it displays the product information and allows 
+ * the user to select the desired quantity and add the product to the shopping cart. 
+ * When "Add to Cart" is clicked, the product is added to the cart and a success notification is shown using SweetAlert2.
+ */

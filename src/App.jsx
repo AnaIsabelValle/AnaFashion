@@ -61,7 +61,11 @@ function App() {
       }
     });
   }, []);
-
+/***
+ * This code manages the functionality of the mobile menu, allowing users 
+ * to show or hide the menu and submenus, and adjusts the menu layout based
+ * on the browser window size.
+ */
   return (
     <React.StrictMode>
       <AuthProvider>

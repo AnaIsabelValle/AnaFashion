@@ -40,3 +40,21 @@ const Logout = () => {
   };
   
   export default Logout;
+
+  /*
+   * This component is responsible for logging the user out and redirecting 
+   * them to the home page. Its primary function is to handle the logout process
+   * and provide the user with a farewell message.
+   * 1.-Logout and Redirect:
+   * It uses the useAuth hook to access the authentication state and the logoutUser 
+   * function to log the user out.
+   * It utilizes the useNavigate hook to access the navigation function.
+   * The useEffect function is used to execute code after the component is mounted.
+   * In this case, it checks if the user is authenticated.
+   * If the user is authenticated, logoutUser is called to log the user out.
+   * If the user is not authenticated, the user is redirected to the home page using navigate('/').
+   * The effect's dependency is left empty [], meaning the effect will run only once after the component is mounted.
+   * 2.- Farewell Message:
+   * Within the component, a farewell message is displayed thanking the user for their visit and saying "Goodbye...".
+   * A link is provided allowing the user to return to the home page.
+   */

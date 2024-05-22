@@ -264,3 +264,23 @@ const Profile = () => {
 };
 
 export default Profile;
+
+
+/**
+ * The Profile component is responsible for displaying and updating
+ * the user's shipping information. It requires the user to be authenticated. 
+ * If not, it redirects the user to the login page.
+ * (useEffect): This effect runs when the component mounts and checks if the user
+ * is authenticated. If not, it redirects the user to the login page.
+ * Fetch User Profile (useEffect): This effect fetches the user's profile information
+ * from the server when the component mounts. It updates the shipping state with the retrieved information.
+ * (handleChange): This function is called when there's a change in any of the input fields.
+ * It updates the corresponding field in the shipping state.
+ * (handleSave): This function is called when the user clicks the "Guardar" button to save 
+ * the updated shipping information. It sends a request to the server to update the user's profile. 
+ * If successful, it displays a success message using Swal (SweetAlert2).
+ * The component renders a form with input fields for the user to enter their shipping details. 
+ * It also includes buttons for saving changes and canceling. If the user is not authenticated,
+ *  it displays nothing and redirects to the login page.
+ */
+ 

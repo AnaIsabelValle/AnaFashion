@@ -105,3 +105,27 @@ const Orders = () => {
 };
 
 export default Orders;
+
+
+/*
+ * This component is responsible for displaying a list of orders, 
+ * including details such as order number, quantity of products, payment method, 
+ * delivery status, and total. It interacts with the API to fetch orders and renders 
+ * them in a table format.
+ * 1.- Authentication Verification:
+ * It uses the useAuth hook to check if the user is authenticated.
+ * If the user is not authenticated, it redirects them to the login page using the navigate function.
+ * 2.- Fetching Orders:
+ * It utilizes the useEffect hook to fetch orders from the API when the component mounts or
+ *  when there's a change in the user ID or isAdmin state.
+ * If the user is an admin, it fetches all orders. Otherwise, it fetches orders associated with the current user.
+ * The fetched orders are stored in the orders state using the setOrders function.
+ * 3.- Rendering Orders:
+ * If there are no orders available, it displays a message encouraging the user to make a purchase.
+ * If there are orders available, it renders them in a table format.
+ * Each order is represented by the OrderItem component, passing the order details and isAdmin state as props.
+ * 4.- Table Structure:
+ * The table displays headers for different order details such as order number, quantity of products, 
+ * payment method, delivery status, and total.
+ * For admin users, an additional column is shown for the customer ID.
+ */
