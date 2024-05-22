@@ -84,6 +84,23 @@ const Profile = () => {
   };
 
   const handleSave = async () => {
+    if (
+      shipping.firstname == "" ||
+      shipping.lastname == "" ||
+      shipping.country == "" ||
+      shipping.province == "" ||
+      shipping.city == "" ||
+      shipping.zipcode == "" ||
+      shipping.address == ""
+    ) {
+      Swal.fire({
+        icon: "error",
+        title: `Todos los datos deben completarse`,
+        showConfirmButton: false,
+        timer: 1000,
+      });
+      return;
+    }
     try {
       const profile = {
         name: {
@@ -283,4 +300,3 @@ export default Profile;
  * It also includes buttons for saving changes and canceling. If the user is not authenticated,
  *  it displays nothing and redirects to the login page.
  */
- 

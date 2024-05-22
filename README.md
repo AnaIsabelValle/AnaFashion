@@ -25,7 +25,7 @@ AnaFashion es una aplicación web moderna, elegante y segura que te permite expl
 ## Instalación
 
 - Puedes clonar el repo : **https://github.com/AnaIsabelValle/AnaFashion.git**
-- cd AnaFashion" 
+- cd AnaFashion
 - Instalar las dependencias: **npm install**
 - Para iniciar el servidor de desarrollo de la aplicación, ejecuta el siguiente comando:**npm run dev** . Se Abrirá la aplicación en tu navegador.
 - Para arrancar el servidor backend, que utiliza un archivo  json-server, ejecuta:**npm run server**

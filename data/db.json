@@ -157,6 +157,46 @@
         "street": "CL La Palma, nº 30"
       },
       "phone": "123456789"
+    },
+    {
+      "email": "lolita@lolita.com",
+      "password": "$2a$10$vOy3CcKPJNGTO3bA04tDKe8Lv64YSpx3E9h9JnXBno3YqmqL7s1Q2",
+      "username": "lola lolita",
+      "role": "User",
+      "enabled": true,
+      "id": "PiDayXf",
+      "name": {
+        "firstname": "Lola",
+        "lastname": "Pepita"
+      },
+      "address": {
+        "country": "Argentina",
+        "province": "Buenos Aires",
+        "city": "Buenos Aires",
+        "zipcode": "19285",
+        "street": "Av Ana es la mejor 48 "
+      },
+      "phone": "178045342"
+    },
+    {
+      "email": "pepita@pepita.com",
+      "password": "$2a$10$UwMKogicAkL9qt56OwW6KOZIisjwhjil7ztT/HndKzVSnTAIZUt9e",
+      "username": "pepita",
+      "role": "User",
+      "enabled": true,
+      "id": "ZX5xU3w",
+      "name": {
+        "firstname": "Pepita",
+        "lastname": "Pepita"
+      },
+      "address": {
+        "country": "España",
+        "province": "Barcelona",
+        "city": "Llobregat",
+        "zipcode": "22222",
+        "street": "AV. Montserrat, nº1"
+      },
+      "phone": "123456"
     }
   ],
   "orders": [
@@ -303,6 +343,105 @@
       "isDelivered": false,
       "deliveredAt": null,
       "id": 5
+    },
+    {
+      "user": "PiDayXf",
+      "orderItems": [
+        {
+          "product": "1",
+          "name": "Camisa blanca",
+          "quantity": 1,
+          "price": 35
+        },
+        {
+          "product": "2",
+          "name": "Blusa blanca",
+          "quantity": 1,
+          "price": "40.0"
+        },
+        {
+          "product": "4",
+          "name": "Abrigo marrón",
+          "quantity": 1,
+          "price": 65
+        }
+      ],
+      "shippingAddress": {
+        "name": {
+          "firstname": "",
+          "lastname": ""
+        },
+        "address": {
+          "country": "",
+          "province": "",
+          "city": "",
+          "zipcode": "",
+          "street": ""
+        }
+      },
+      "totalPrice": 140,
+      "paymentMethod": "paypal",
+      "isDelivered": false,
+      "deliveredAt": null,
+      "id": 6
+    },
+    {
+      "user": "PiDayXf",
+      "orderItems": [
+        {
+          "product": "5",
+          "name": "Blusa gris",
+          "quantity": 1,
+          "price": 30
+        }
+      ],
+      "shippingAddress": {
+        "name": {
+          "firstname": "Lola",
+          "lastname": "Lolita"
+        },
+        "address": {
+          "country": "Argentina",
+          "province": "Buenos Aires",
+          "city": "Buenos Aires",
+          "zipcode": "19285",
+          "street": "Av Ana es la mejor 48 "
+        }
+      },
+      "totalPrice": 30,
+      "paymentMethod": "paypal",
+      "isDelivered": false,
+      "deliveredAt": null,
+      "id": 7
+    },
+    {
+      "user": "ZX5xU3w",
+      "orderItems": [
+        {
+          "product": "2",
+          "name": "Blusa blanca",
+          "quantity": 1,
+          "price": "40.0"
+        }
+      ],
+      "shippingAddress": {
+        "name": {
+          "firstname": "Pepita",
+          "lastname": "Pepita"
+        },
+        "address": {
+          "country": "España",
+          "province": "Barcelona",
+          "city": "Llobregat",
+          "zipcode": "22222",
+          "street": "AV. Montserrat, nº1"
+        }
+      },
+      "totalPrice": 40,
+      "paymentMethod": "paypal",
+      "isDelivered": false,
+      "deliveredAt": null,
+      "id": 8
     }
   ]
 }

@@ -1,10 +1,11 @@
 import { useState, useEffect, useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-
+import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import { CartContext } from "../../context/CartContext";
 import OrderService from "../../services/order.service";
 import UserService from "../../services/user.service";
+
 
 function Checkout() {
   const { isAuthenticated, user, logoutUser } = useAuth();
@@ -109,6 +110,25 @@ function Checkout() {
   };
 
   const handleOrder = async () => {
+    if (
+        formData.firstname == "" ||
+        formData.lastname == "" ||
+        formData.country == "" ||
+        formData.province == "" ||
+        formData.city == "" ||
+        formData.zipcode == "" ||
+        formData.address == "" 
+        ) {
+          Swal.fire({
+            icon: "error",
+            title: `Todos los datos deben completarse`,
+            showConfirmButton: false,
+            timer: 1000,
+          });
+          return;
+        }
+    
+
     const shipping = {
       name: {
         firstname: formData.firstname,
