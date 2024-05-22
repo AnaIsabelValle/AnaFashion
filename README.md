@@ -20,10 +20,12 @@ AnaFashion es una aplicación web moderna, elegante y segura que te permite expl
 - **HTML/CSS**: Lenguajes estándar para estructurar y diseñar la interfaz de usuario.
 - **JavaScript/ES6+**: Lenguaje de programación utilizado para la lógica de la aplicación.
 - **npm**: Gestor de paquetes para instalar y administrar las dependencias del proyecto.
+- **JSON Server** : Para crear una API REST.
 
 ## Instalación
 
 - Puedes clonar el repo : **https://github.com/AnaIsabelValle/AnaFashion.git**
+- cd AnaFashion" 
 - Instalar las dependencias: **npm install**
 - Para iniciar el servidor de desarrollo de la aplicación, ejecuta el siguiente comando:**npm run dev** . Se Abrirá la aplicación en tu navegador.
 - Para arrancar el servidor backend, que utiliza un archivo  json-server, ejecuta:**npm run server**
